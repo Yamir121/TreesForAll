@@ -1022,7 +1022,7 @@ MonoBehaviour:
   requestScenePermissionOnStartup: 1
   requestRecordAudioPermissionOnStartup: 0
   _localDimming: 1
-  _trackingOriginType: 2
+  _trackingOriginType: 1
   usePositionTracking: 1
   useRotationTracking: 1
   useIPDInPositionTracking: 1
@@ -1747,6 +1747,63 @@ Transform:
   - {fileID: 298299650}
   m_Father: {fileID: 1473970235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &678190098083622755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084041837330984298, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094825390958536254, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
+      propertyPath: m_Name
+      value: GrabbablesTable
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d2de0c6ee36a2e548a700cab2aa0fb86, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1757,3 +1814,4 @@ SceneRoots:
   - {fileID: 1622815899}
   - {fileID: 1740577641}
   - {fileID: 1215019644}
+  - {fileID: 678190098083622755}
