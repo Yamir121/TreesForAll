@@ -14,7 +14,7 @@ Deze complexiteit in combinatie met het bewustzijn dat bossen niet vanzelf weer 
 
 # Concept
 
-### Build Your Own Forest
+### "Build Your Own Forest"
 
     * Te spelen op o.a. NS-stations (denk aan pop-up Utrecht Centraal), festivals, of openbare ruimtes
     * VR-ervaring van max. 5 minuten per speler
@@ -31,9 +31,18 @@ Aan het eind krijgt de speler een score op basis van de 3 statusbalken en effici
 # Technische uitwerking
 
 ### Lijst aan gebruikte assets
+    * Polygon Pack ...
+    * Audio ...
+
+### Lijst van ontwikkeltools en plugins
+    * Unity 6000.1.1f1
+    * Meta SDK 77.0.0
+    * OpenXR plugin 1.14.3
+    * Odin Inspector 3.3.1.13
+    * ...
 
 ### Functionele vereisten
-1. De game moet een pop-up systeem hebben waarin verschillende schermen weergegeven kunnen worden.
+1. De game moet een pop-up / user-interface systeem hebben waarin verschillende schermen weergegeven kunnen worden en een button input verwerkt kan worden.
 
 2. De game moet verschillende levels bevatten met hierin:
     * Een locatie (geografisch)
@@ -41,59 +50,46 @@ Aan het eind krijgt de speler een score op basis van de 3 statusbalken en effici
     * Startwaardes van de drie statusbalken: bodemkwaliteit, biodiversiteit, CO₂-opslag
     * Eén van drie probleemstellingen (gedegradeerde bodem, zaadgebrek, klimaatverandering)
 
-2. De game moet een timer systeem hebben welke gestart kan worden door het gameplay systeem.
+3. De game moet levels inladen, interrupten, resetten, en nieuwe inladen.
 
-3. Spelers moeten de volgende acties kunnen uitvoeren:
+4. De game moet een gameplay systeem hebben die levels kan starten en eindigen, realtime waardes bijhoudt en events kan triggeren.
+
+5. De game moet een grid-systeem hebben waarin planten gemanaged worden.
+
+6. De game moet een timer systeem hebben welke gestart kan worden door het gameplay systeem.
+
+7. Spelers moeten de volgende acties kunnen uitvoeren met hierbij zichbare signifiers en feedback:
     * Selecteren uit de zadenselectie
     * Planten van zaden (bomen, struiken, bodembedekkers)
     * Water geven aan planten
     * Verwijderen van ongewenste planten of dode vegetatie, invasieve soorten
 
-4. De game moet een beplanting selectie hebben voor de speler om te selecteren:
+8. De game moet een beplanting selectie hebben voor de speler om te selecteren:
     * Inheemse bomen (diverse types)
     * Klimaatrobuuste exoten (laag invasief)
     * Zuidelijke varianten
     * Zaaddragende struiken
     * Grassen en bodembedekkers
 
-5. De game mag een tipsysteem hebben die suggesties doet als speler vast zit.
+9. Drie statusbalken moeten op een HUD dynamisch reageren op speleracties.
 
-6. Drie statusbalken moeten op een HUD dynamisch reageren op speleracties.
-
-7. Score systeem die berekend op basis van:
+10. Score systeem die berekend op basis van:
     * Verbetering van statusbalk waardes
     * Efficiëntie van zaadgebruik
 
-8. De game mag een optie bieden om het bos te delen met social media.
+11. De game mag een tipsysteem hebben die suggesties doet als speler vast zit.
 
-- De game moet levels kunnen inladen, interrupten en resetten, nieuw level inladen
-- de game moet een popup scherm kunnen weergeven
-- de game moet UI input buttons kunnen verwerken
-- de game moet een level kunnen starten met een distraction
-- de game moet distractions kunnen definiëren
-- de game moet levels kunnen definiëren
-- een level moet een timer hebben
-- de game moet een endstate hebben
-- de game moet een score bijhouden obv seeds spent
-- de speler moet fysiek kunnen bewegen in roomscale
-- de speler moet een place actie kunnen uitvoeren
-- de speler moet een remove actie kunnen uitvoeren
-- de speler moet een select actie kunnen uitvoeren
-- de speler moet een grab actie kunnen uitvoeren
-- de game moet een grid managen
-- de speler moet een water actie kunnen uitvoeren
-- de game moet een plantable selection hebben
-- een level moet een challenge bevatten
-- de game moet level variables kunnen managen
-- de game moet een hud met timer en de level variables managen
+12. De game mag een diversion systeem krijgen waar levels een extra taak / uitdaging toegewezen kunnen krijgen.
+
+13. De game mag een optie bieden om de gecreeërde bebossing te delen op social media.
 
 ### Niet-functionele vereisten
 
 1. De VR-ervaring moet volledig speelbaar zijn binnen 5 minuten.
 
-2. Het systeem moet toegankelijk en intuïtief zijn voor gebruikers zonder ecologische voorkennis.
+2. Het systeem moet toegankelijk en intuïtief zijn voor gebruikers zonder gaming ervaring of ecologische voorkennis.
 
-3. De visuele stijl is sfeervol, zacht en speels. Maakt gebruik van aarde tonen en groen om een biologische uitstraling te hebben.
+3. De visuele stijl is sfeervol, toegankelijk en speels. Maakt gebruik van aarde-tonen en groen, met een biologische uitstraling.
 
 4. De ervaring moet geschikt zijn voor gebruik op openbare locaties (zoals NS-stations), met vloeiende doorstroom en lage instapdrempel.
 
@@ -102,3 +98,8 @@ Aan het eind krijgt de speler een score op basis van de 3 statusbalken en effici
 6. De game moet offline speelbaar zijn, met optionele online functionaliteit voor het delen van resultaten.
 
 7. De game moet met minimaal 90 fps draaien op alle momenten.
+
+8. de speler moet fysiek kunnen bewegen in VR roomscale setup.
+
+### Voortgang (Trello)
+https://trello.com/invite/b/688759a7bac43969a05891ae/ATTI2d22ff2cdfb68a535551472e4f8eb86506C8F4FB/treesforall
