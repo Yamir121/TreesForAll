@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 
-//Manages game and level time allowing for specific interruptions and timers.
+//Manages game and level time allowing for specific interruptions and timers. Wrote this to accommodate for the situation the game needs to be interrupted, as its intended use is a public space.
 public class TimeManager : Manager {
     public static TimeManager Instance { get; private set; }
 
@@ -79,5 +79,12 @@ public class TimeManager : Manager {
     public void StartTimer(float duration, bool useLevelTime, Action onComplete) {
         float currentTime = useLevelTime ? levelTime : GameTime;
         timers.Add(new Timer(currentTime, duration, useLevelTime, onComplete));
+    }
+
+    /// <summary>
+    /// Removes all active timers from the TimeManager
+    /// </summary>
+    public void RemoveAllTimers()
+    {
     }
 }
