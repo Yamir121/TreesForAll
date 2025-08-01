@@ -5,10 +5,19 @@ using UnityEngine;
 public class Plant : ScriptableObject
 {
     //Central data container for easy access to all information in one place, reducing chance for mistakes and allowing for easy extendability in content for the future.
-    public Selectable SelectionPrefab => selectionPrefab;
-    [PreviewField(100)][SerializeField] private Selectable selectionPrefab;
-    [PreviewField(100)][SerializeField] private SeedPrefab SeedPrefab;
-    [PreviewField(100)][SerializeField] private GridObject gridObject;
+    public Selectable SelectionObject => selectionObject;
+    public GridObject GridObject => gridObject;
+    public string PlantName => plantName;
+    public GroundType IndigiousLocation => indigiousLocation;
+
+    public Vector3 Attributes => new Vector3(carbonStorage, biodiversity, soilQuality);
+
+    [TitleGroup("References")]
+    [SerializeField] private Selectable selectionObject;
+    [SerializeField] private Seed SeedObject;
+    [SerializeField] private GridObject gridObject;
+    [TitleGroup("Variables")]
+    [SerializeField] private string plantName;
     [Range(1, 5)][SerializeField] private int growthStages;
     [SerializeField] private GroundType indigiousLocation;
 

@@ -15,7 +15,7 @@ public class TimeManager : Manager {
     private float interruptionTime;
     [SerializeField] private List<Timer> timers = new();
 
-    private struct Timer {
+    public struct Timer {
         public float StartTime;
         public float Duration;
         public bool UseLevelTime;
@@ -30,7 +30,8 @@ public class TimeManager : Manager {
     }
 
 
-    void Awake() {
+    void Awake() 
+    {
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -39,13 +40,17 @@ public class TimeManager : Manager {
         Instance = this;
     }
 
-    void Update() {
-        if (!isLevelTimeInterrupted) {
+    void Update() 
+    {
+        if (!isLevelTimeInterrupted) 
+        {
             levelTime = GameTime - interruptionTime;
 
-            for (int i = timers.Count - 1; i >= 0; i--) {
+            for (int i = timers.Count - 1; i >= 0; i--) 
+            {
                 float currentTime = timers[i].UseLevelTime ? levelTime : GameTime;
-                if (currentTime >= timers[i].StartTime + timers[i].Duration) {
+                if (currentTime >= timers[i].StartTime + timers[i].Duration) 
+                {
                     timers[i].OnComplete();
                     timers.RemoveAt(i);
                 }
@@ -76,9 +81,11 @@ public class TimeManager : Manager {
     /// <param name="useLevelTime">If true uses LevelTime, otherwise uses GameTime</param>
     /// <param name="onComplete">Callback after duration</param>
     /// <returns></returns>
-    public void StartTimer(float duration, bool useLevelTime, Action onComplete) {
+    public Timer StartTimer(float duration, bool useLevelTime, Action onComplete) {
         float currentTime = useLevelTime ? levelTime : GameTime;
-        timers.Add(new Timer(currentTime, duration, useLevelTime, onComplete));
+        Timer timer = new Timer(currentTime, duration, useLevelTime, onComplete);
+        timers.Add(timer);
+        return timer;
     }
 
     /// <summary>
@@ -86,5 +93,11 @@ public class TimeManager : Manager {
     /// </summary>
     public void RemoveAllTimers()
     {
+        timers.Clear();
+    }
+
+    public void InterruptSpecificTimer(Timer timer)
+    {
+        timers.Remove(timer);
     }
 }

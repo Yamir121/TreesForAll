@@ -1,3 +1,4 @@
+using System.Drawing;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GroundTypes", menuName = "BuildYourOwnForest/GroundTypes")]
@@ -8,6 +9,7 @@ public class GroundType : ScriptableObject
     public string WorldLocation => worldLocation;
 
     [SerializeField] private string worldLocation;
+    [SerializeField] private Vector2 groundSize;
     
 
 }
