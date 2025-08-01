@@ -1,15 +1,23 @@
 using Sirenix.OdinInspector;
+using System;
 using System.Drawing;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
+#if UNITY_EDITOR
+using UnityEditorInternal;
+#endif
 
-public class GroundGrid : MonoBehaviour
+public class GroundGrid : SerializedMonoBehaviour
 {
-    private float gridHeight => transform.position.y;
+    [TitleGroup("References")]
+    [SerializeField] private InteractionZone zonePrefab;
 
-    private GridSpace[,] grid;
+    [TitleGroup("Data")]
+    [ReadOnly][SerializeField][TableMatrix(DrawElementMethod = "DrawElement")] private GridSpace[,] grid;
+    [ReadOnly][SerializeField] private float gridHeight => transform.position.y;
 
+    [Serializable]
     private class GridSpace
     {
         public GridSpace(Vector3 position)
@@ -18,13 +26,24 @@ public class GroundGrid : MonoBehaviour
         }
         public Vector3 position;
         public GridObject occupyingObject;
+        public InteractionZone interactionZone;
     }
 
+    [Button]
+    /// <summary>
+    /// sets the size of the grid according to parameter values.
+    /// </summary>
+    /// <param name="rows">The amount of gridspaces in the x-axis.</param>
+    /// <param name="cols">The amount of gridspaces in the z-axis.</param>
     public void SetGridSize(int rows,int cols)
     {
         grid = new GridSpace[rows, cols];
     }
 
+    [Button]
+    /// <summary>
+    /// Populates the grid with Gridspaces and spawn interactionZones in the scene.
+    /// </summary>
     public void PopulateGrid() 
     {
         Vector2 offset = new Vector2((grid.GetLength(0)/2), (grid.GetLength(1)/2));
@@ -34,9 +53,11 @@ public class GroundGrid : MonoBehaviour
             for (int col = 0; col < grid.GetLength(1); col++)
             {
                 grid[row, col] = new GridSpace(new Vector3(row - offset.x, gridHeight, col - offset.y));
+                Instantiate(zonePrefab, grid[row, col].position, Quaternion.identity, gameObject.transform);
             }
         }
     }
+
     [Button]
     /// <summary>
     /// Spawn a plant on a specific position in the GroundGrid.
@@ -60,7 +81,7 @@ public class GroundGrid : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    public void OnDrawGizmos()
+    /*public void OnDrawGizmos()
     {
         if (grid == null || grid.GetLength(0) != 5 || grid.GetLength(1) != 5)
         {
@@ -83,8 +104,13 @@ public class GroundGrid : MonoBehaviour
             }
         }
         
+    }*/
+    static GroundGrid.GridSpace DrawElement(Rect rect, GroundGrid.GridSpace value)
+    {
+        string name = value != null && value.occupyingObject != null ? value.occupyingObject.name + (value.occupyingObject as PlantInGrid).CurrentGrowthStage : "<empty>";
+        GUI.Label(rect, name);
+        return value;
     }
-
 #endif
 
 }

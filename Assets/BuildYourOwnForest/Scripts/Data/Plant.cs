@@ -6,15 +6,17 @@ public class Plant : ScriptableObject
 {
     //Central data container for easy access to all information in one place, reducing chance for mistakes and allowing for easy extendability in content for the future.
     public Selectable SelectionObject => selectionObject;
+    public Seed SeedObject => seedObject;
     public GridObject GridObject => gridObject;
     public string PlantName => plantName;
+    public int GrowthStages => growthStages;
     public GroundType IndigiousLocation => indigiousLocation;
 
     public Vector3 Attributes => new Vector3(carbonStorage, biodiversity, soilQuality);
 
     [TitleGroup("References")]
     [SerializeField] private Selectable selectionObject;
-    [SerializeField] private Seed SeedObject;
+    [SerializeField] private Seed seedObject;
     [SerializeField] private GridObject gridObject;
     [TitleGroup("Variables")]
     [SerializeField] private string plantName;

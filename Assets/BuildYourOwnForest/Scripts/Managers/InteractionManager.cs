@@ -1,11 +1,14 @@
 using Oculus.Interaction;
 using Oculus.Interaction.Demo;
+using Oculus.Interaction.HandGrab;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static Oculus.Interaction.Context;
 
 public class InteractionManager : Manager
@@ -21,13 +24,29 @@ public class InteractionManager : Manager
         NONE // No interactions are allowed
     }
 
+    [SerializeField]
+    public enum Hand
+    {
+        LEFT,
+        RIGHT
+    }
+
+    //[TitleGroup("References")]
+    //[SerializeField] private  leftHand;
+    //[SerializeField] private  rightHand;
+
+    [TitleGroup("Settings")]
+    [SerializeField] private bool isSimulating = false;
+
     [TitleGroup("Data")]
-    [ReadOnly][SerializeField] private XRInput xrInput;
     [ReadOnly][SerializeField] private bool isLeftGrabbing;
     [ReadOnly][SerializeField] private bool isRightGrabbing;
     [ReadOnly][SerializeField] private Vector3 leftHandPosition;
     [ReadOnly][SerializeField] private Vector3 rightHandPosition;
     [ReadOnly][SerializeField] private List<InteractionZone> interactionZones;
+    [ReadOnly][SerializeField] private List<Holdable> holdables;
+    [ReadOnly][SerializeField] private GameObject simulationObject;
+    [ReadOnly][SerializeField] private XRInput xrInput;
 
     private void Awake()
     {
@@ -41,6 +60,9 @@ public class InteractionManager : Manager
         xrInput = new XRInput();
     }
 
+    /// <summary>
+    /// Subscribes to grab input actions.
+    /// </summary>
     private void OnEnable()
     {
         xrInput.Enable();
@@ -52,20 +74,54 @@ public class InteractionManager : Manager
         xrInput.Grab.grabRight.canceled += OnGrabRightCanceled;
     }
 
+    private void Start()
+    {
+        //create simulation object for testing purposes.
+        if (isSimulating) 
+        {
+            simulationObject = SpawnTestCube();
+        }
+
+    }
+
     private void Update()
     {
         isLeftGrabbing = xrInput.Grab.grabLeft.IsPressed();
         isRightGrabbing = xrInput.Grab.grabRight.IsPressed();
 
-        leftHandPosition = xrInput.PositionTracking.positionLeft.ReadValue<Vector3>();
-        rightHandPosition = xrInput.PositionTracking.positionRight.ReadValue<Vector3>();
-
-        CheckForInteractionZones();
-
+        if (!isSimulating)
+        {
+            leftHandPosition = xrInput.PositionTracking.positionLeft.ReadValue<Vector3>();
+            rightHandPosition = xrInput.PositionTracking.positionRight.ReadValue<Vector3>();
+        }
+        else
+        {
+            leftHandPosition = simulationObject.transform.position;
+        }
+        HighlightRoutine();
     }
+
+    private void OnGrabPerformed(InputAction.CallbackContext context, Hand whichHand)
+    {
+        Vector3 _handPosition = whichHand == Hand.LEFT ? leftHandPosition : rightHandPosition;
+
+        for (int i = 0; i < interactionZones.Count; i++)
+        {
+            InteractionZone zone = interactionZones[i];
+            if (Vector3.Distance(_handPosition,zone.transform.position) < zone.InteractionDistance)
+            {
+                if (zone.AcceptedInteractionTypes.Contains(InteractionType.SELECT))
+                {
+                    zone.Interact?.Invoke(InteractionType.SELECT, whichHand);
+                    return;
+                }
+            }
+        }
+    }
+
     private void OnGrabLeftPerformed(InputAction.CallbackContext context)
     {
-        SpawnTestCube();
+        OnGrabPerformed(context, Hand.LEFT);
     }
 
     private void OnGrabLeftCanceled(InputAction.CallbackContext context)
@@ -74,6 +130,7 @@ public class InteractionManager : Manager
 
     private void OnGrabRightPerformed(InputAction.CallbackContext context)
     {
+        OnGrabPerformed(context, Hand.RIGHT);
     }
 
     private void OnGrabRightCanceled(InputAction.CallbackContext context)
@@ -91,43 +148,23 @@ public class InteractionManager : Manager
         xrInput.Disable();
     }
 
-    private void CheckForInteractionZones()
+    private void HighlightRoutine()
     {
         for (int i = 0; i < interactionZones.Count; i++)
         {
             InteractionZone zone = interactionZones[i];
-            // check for highlight
-            float highlightDistanceSqr = zone.HighlightDistance * zone.HighlightDistance;
-            if ((leftHandPosition - zone.transform.position).sqrMagnitude < highlightDistanceSqr || (rightHandPosition - zone.transform.position).sqrMagnitude < highlightDistanceSqr)
+
+            if (Vector3.Distance(leftHandPosition,zone.transform.position) < zone.HighlightDistance)
             {
-                //highlight the zone
+                zone.UpdateHighlight(Vector3.Distance(leftHandPosition, zone.transform.position));
             }
-            else
+
+             if (Vector3.Distance(rightHandPosition, zone.transform.position) < zone.HighlightDistance)
             {
-                return;
+                zone.UpdateHighlight(Vector3.Distance(rightHandPosition, zone.transform.position));
             }
-            //check for interaction
-            float interactDistanceSqr = zone.InteractionDistance * zone.InteractionDistance;
-            if ((leftHandPosition - zone.transform.position).sqrMagnitude < interactDistanceSqr || (rightHandPosition - zone.transform.position).sqrMagnitude < interactDistanceSqr) 
-            {
-                //interact with the zone
-            }
-            else
-            {
-                return;
-            }
+
         }
-    }
-
-    private void SpawnTestCube()
-    {
-        Vector3 spawnPosition = Camera.main.transform.position + Camera.main.transform.forward * 0.5f;
-        Quaternion spawnRotation = Quaternion.identity;
-
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.position = spawnPosition;
-        cube.transform.rotation = spawnRotation;
-        cube.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 
     public void RegisterInteractionZone(InteractionZone zone)
@@ -139,4 +176,44 @@ public class InteractionManager : Manager
         interactionZones.Remove(zone);
     }
 
+    public void RegisterHoldable(Holdable holdable)
+    {
+        holdables.Add(holdable);
+       // holdable.GrabInteractable.WhenInteractorRemoved.Action += 
+    }
+    public void UnregisterHoldable(Holdable holdable)
+    {
+        holdables.Remove(holdable);
+    }
+
+    private GameObject SpawnTestCube()
+    {
+        Vector3 _spawnPosition = Camera.main.transform.position + Camera.main.transform.forward * 0.5f;
+        Quaternion _spawnRotation = Quaternion.identity;
+
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.SetParent(gameObject.transform);
+        cube.transform.position = _spawnPosition;
+        cube.transform.rotation = _spawnRotation;
+        cube.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+        return cube;
+    }
+
+    private GameObject SpawnTestCube(Vector3 position)
+    {
+        Vector3 _spawnPosition = position;
+        Quaternion _spawnRotation = Quaternion.identity;
+
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = _spawnPosition;
+        cube.transform.rotation = _spawnRotation;
+        cube.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+        return cube;
+    }
+
+    [Button]
+    public void SimulateGrab()
+    {
+
+    }
 }

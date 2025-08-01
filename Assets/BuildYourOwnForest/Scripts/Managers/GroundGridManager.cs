@@ -1,16 +1,12 @@
 using UnityEngine;
 
-public class GroundGridManager : MonoBehaviour
+public class GroundGridManager : Manager
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GroundGrid grid;
 
-    // Update is called once per frame
-    void Update()
+    public void SetupGroundGrid(int x, int y)
     {
-        
+        grid.SetGridSize(x,y);
+        grid.PopulateGrid();
     }
 }

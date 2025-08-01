@@ -174,8 +174,30 @@
                 },
                 {
                     "name": "",
+                    "id": "82724f9c-c5c4-4681-bf4f-e4d589de6fbc",
+                    "path": "<PalmPose>{LeftHand}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "positionLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "56e99b1f-10a2-4e29-ba1b-2fe9e2fa2e21",
                     "path": "<XRController>{RightHand}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "positionRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e23a22a0-b2bb-4dfd-92b9-fec125045f47",
+                    "path": "<PalmPose>{RightHand}/devicePosition",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
