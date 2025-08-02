@@ -1,3 +1,5 @@
+using Oculus.Interaction.HandGrab;
+using Oculus.Interaction.Input;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
@@ -7,8 +9,8 @@ using UnityEngine;
 public class InteractionZone : MonoBehaviour
 {
 
-    public float HighlightDistance => highlightDistance;
     public float InteractionDistance => interactionDistance;
+    public float HighlightDistance => highlightDistance;
     public bool IsHighlighting => isHighlighting;
 
     public InteractionManager.InteractionType[] AcceptedInteractionTypes => acceptedInteractionTypes;
@@ -19,8 +21,8 @@ public class InteractionZone : MonoBehaviour
     [SerializeField] private Renderer highlightVisual;
 
     [TitleGroup("Settings")]
-    [SerializeField] private float highlightDistance;
     [SerializeField] private float interactionDistance;
+    [SerializeField] private float highlightDistance;
     [SerializeField] private int priority; //when two interactionzones overlap, one should get priority over the other
     [SerializeField] private InteractionManager.InteractionType[] acceptedInteractionTypes;
     [SerializeField] private float longSelectDuration;
@@ -34,7 +36,7 @@ public class InteractionZone : MonoBehaviour
         InteractionManager.Instance.RegisterInteractionZone(this);
     }
 
-    public void UpdateHighlight(float distance)
+    public void UpdateHighlight(float distance, bool validInteraction)
     {
         if (highlightVisual != null)
         {

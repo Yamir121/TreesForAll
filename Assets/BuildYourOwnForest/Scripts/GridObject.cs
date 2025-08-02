@@ -16,7 +16,7 @@ public class GridObject : Selectable
         throw new System.NotImplementedException();
     }
 
-    public override void Select(InteractionManager.InteractionType type,InteractionManager.Hand hand)
+    public override void Select(InteractionManager.InteractionType type, InteractionManager.Hand hand)
     {
         throw new System.NotImplementedException();
     }

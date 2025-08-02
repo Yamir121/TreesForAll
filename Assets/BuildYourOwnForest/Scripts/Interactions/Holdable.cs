@@ -1,20 +1,27 @@
 using Oculus.Interaction;
+using Oculus.Interaction.HandGrab;
 using Sirenix.OdinInspector;
+using System.Threading;
 using UnityEngine;
 
 public class Holdable : MonoBehaviour
 {
     [TitleGroup("Data")]
-    public GrabInteractable GrabInteractable => grabInteractable;
+    public HandGrabInteractable GrabInteractable => grabInteractable;
 
     [TitleGroup("References")]
-    [SerializeField] private GrabInteractable grabInteractable;
+    [SerializeField] private HandGrabInteractable grabInteractable;
 
     private void OnEnable()
     {
         InteractionManager.Instance.RegisterHoldable(this);
     }
 
+    public void Despawn()
+    {
+        //Spawn particle
+        Destroy(this.gameObject);
+    }
     private void OnDisable()
     {
         InteractionManager.Instance.UnregisterHoldable(this);

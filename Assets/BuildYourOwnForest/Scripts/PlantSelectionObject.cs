@@ -1,4 +1,5 @@
 using Oculus.Interaction;
+using Oculus.Interaction.HandGrab;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using static UnityEngine.XR.OpenXR.Features.Interactions.HandInteractionProfile;
@@ -19,11 +20,15 @@ public class PlantSelectionObject : Selectable
     [Button]
     public override void Select(InteractionManager.InteractionType type, InteractionManager.Hand hand)
     {
+        InteractionManager.Instance.SpawnTestCube(gameObject.transform.position + (Vector3.up * 2));
         if (type == InteractionManager.InteractionType.SELECT)
+        InteractionManager.Instance.SpawnTestCube(gameObject.transform.position + (Vector3.up * 3));
         {
             Seed seed = Instantiate(plantData.SeedObject, seedSpawnPosition.position, seedSpawnPosition.rotation);
+            // place seed in hand
+            HandGrabInteractor interactor = hand == InteractionManager.Hand.LEFT ? InteractionManager.Instance.LeftHandInteractor : InteractionManager.Instance.RightHandInteractor;
+            interactor.ForceSelect(seed.GrabInteractable);
         }
-        // place seed in hand
     }
 
 }

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4802786404d9143bf6d2aa50bf4642, type: 3}
   m_Name: TemplatePlant
   m_EditorClassIdentifier: 
+  plantName: TemplatePlant
   selectionObject: {fileID: 7501436139151509466, guid: 22d6ba3ae2f3a954ab89bf2edcea4aaf, type: 3}
   seedObject: {fileID: 8510455893338832618, guid: d803b9c857cae8d41a95c29818626c13, type: 3}
   gridObject: {fileID: 6495432907076145207, guid: d974c36e48aea064f9198ef484a97952, type: 3}
-  plantName: TemplatePlant
   growthStages: 3
-  indigiousLocation: {fileID: 11400000, guid: 4272d53fd1272d94da092365f93503d8, type: 2}
+  indigiousLocation: {fileID: 0}
   carbonStorage: 0
   biodiversity: 0
   soilQuality: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6747913137810117969}
   - component: {fileID: 7434395963932737133}
   m_Layer: 0
-  m_Name: TemplateGroundGrid
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2026715802298348536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.17, y: 0.01, z: -0.22}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -154,3 +154,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c09fbeee7dcb9c4f810d6f64616e8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: grid
+      Entry: 6
+      Data: 
+  zonePrefab: {fileID: 2242167875876852578, guid: cd187fb27bdfe114f8b21d1f5110340b, type: 3}

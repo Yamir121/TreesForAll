@@ -31,23 +31,23 @@ Aan het eind krijgt de speler een score op basis van de 3 statusbalken en effici
 # Technische uitwerking
 
 ### Lijst aan gebruikte assets
-    * Polygon Pack ...
-    * Audio ...
+    * Synty Polygon Pack
+    * https://www.freepik.com/free-vector/wooden-frames-buttons-with-jungle-leaves_133568965.htm
+    * https://sketchfab.com/3d-models/watering-can-ffb0d644238b4c679658aa0ee46ac6da
 
 ### Lijst van ontwikkeltools en plugins
     * Unity 6000.1.1f1
     * Meta SDK 77.0.0
     * OpenXR plugin 1.14.3
     * Odin Inspector 3.3.1.13
-    * ...
 
 ### Functionele vereisten
 1. De game moet een pop-up / user-interface systeem hebben waarin verschillende schermen weergegeven kunnen worden en een button input verwerkt kan worden.
 
 2. De game moet verschillende levels bevatten met hierin:
     * Een locatie (geografisch)
-    * Een bodemtype
-    * Startwaardes van de drie statusbalken: bodemkwaliteit, biodiversiteit, CO₂-opslag
+    * Een bodemtype (gebaseerd op geografische locatie)
+    * Startwaardes van de drie statusbalken: bodemkwaliteit, biodiversiteit, CO₂-opslag (gebaseerd op de probleemstelling)
     * Eén van drie probleemstellingen (gedegradeerde bodem, zaadgebrek, klimaatverandering)
 
 3. De game moet levels inladen, interrupten, resetten, en nieuwe inladen.
@@ -100,6 +100,3 @@ Aan het eind krijgt de speler een score op basis van de 3 statusbalken en effici
 7. De game moet met minimaal 90 fps draaien op alle momenten.
 
 8. de speler moet fysiek kunnen bewegen in VR roomscale setup.
-
-### Voortgang (Trello)
-https://trello.com/invite/b/688759a7bac43969a05891ae/ATTI2d22ff2cdfb68a535551472e4f8eb86506C8F4FB/treesforall

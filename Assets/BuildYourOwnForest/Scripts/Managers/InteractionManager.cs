@@ -31,22 +31,25 @@ public class InteractionManager : Manager
         RIGHT
     }
 
-    //[TitleGroup("References")]
-    //[SerializeField] private  leftHand;
-    //[SerializeField] private  rightHand;
+    public HandGrabInteractor LeftHandInteractor => leftHandInteractor;
+    public HandGrabInteractor RightHandInteractor => rightHandInteractor;
+
+    [TitleGroup("References")]
+    [SerializeField] private HandGrabInteractor leftHandInteractor;
+    [SerializeField] private HandGrabInteractor rightHandInteractor;
+    [SerializeField] private Transform leftHandTransform;
+    [SerializeField] private Transform rightHandTransform;
 
     [TitleGroup("Settings")]
-    [SerializeField] private bool isSimulating = false;
+    [SerializeField] private bool interactionsActive;
+    //[SerializeField] private bool isSimulating = false;
 
     [TitleGroup("Data")]
-    [ReadOnly][SerializeField] private bool isLeftGrabbing;
-    [ReadOnly][SerializeField] private bool isRightGrabbing;
-    [ReadOnly][SerializeField] private Vector3 leftHandPosition;
-    [ReadOnly][SerializeField] private Vector3 rightHandPosition;
+    [ReadOnly][SerializeField] private bool leftHandIsGrabbing;
+    [ReadOnly][SerializeField] private bool rightHandIsGrabbing;
     [ReadOnly][SerializeField] private List<InteractionZone> interactionZones;
-    [ReadOnly][SerializeField] private List<Holdable> holdables;
+    [ReadOnly][SerializeField] private List<Holdable> CurrentlyHeldObjects;
     [ReadOnly][SerializeField] private GameObject simulationObject;
-    [ReadOnly][SerializeField] private XRInput xrInput;
 
     private void Awake()
     {
@@ -56,54 +59,46 @@ public class InteractionManager : Manager
             return;
         }
         Instance = this;
-
-        xrInput = new XRInput();
-    }
-
-    /// <summary>
-    /// Subscribes to grab input actions.
-    /// </summary>
-    private void OnEnable()
-    {
-        xrInput.Enable();
-
-        xrInput.Grab.grabLeft.performed += OnGrabLeftPerformed;
-        xrInput.Grab.grabLeft.canceled += OnGrabLeftCanceled;
-
-        xrInput.Grab.grabRight.performed += OnGrabRightPerformed;
-        xrInput.Grab.grabRight.canceled += OnGrabRightCanceled;
-    }
-
-    private void Start()
-    {
-        //create simulation object for testing purposes.
-        if (isSimulating) 
-        {
-            simulationObject = SpawnTestCube();
-        }
-
     }
 
     private void Update()
     {
-        isLeftGrabbing = xrInput.Grab.grabLeft.IsPressed();
-        isRightGrabbing = xrInput.Grab.grabRight.IsPressed();
+        if (interactionsActive) {
+            if (leftHandInteractor != null && leftHandInteractor.State != InteractorState.Disabled)
+            {
+                if (!leftHandIsGrabbing && leftHandInteractor.IsGrabbing)
+                {
+                    OnGrabPerformed(Hand.LEFT);
+                }
+                else
+                {
+                    //OnGrabOngoing();
+                }
+                leftHandIsGrabbing = leftHandInteractor.IsGrabbing;
+            }
+            if (rightHandInteractor != null && rightHandInteractor.State != InteractorState.Disabled)
+            {
+                if (!rightHandIsGrabbing && rightHandInteractor.IsGrabbing)
+                {
+                    OnGrabPerformed(Hand.RIGHT);
+                }
+                else
+                {
+                    //OnGrabOngoing();
+                }
+                rightHandIsGrabbing = rightHandInteractor.IsGrabbing;
+            }
 
-        if (!isSimulating)
-        {
-            leftHandPosition = xrInput.PositionTracking.positionLeft.ReadValue<Vector3>();
-            rightHandPosition = xrInput.PositionTracking.positionRight.ReadValue<Vector3>();
+            HighlightRoutine();
         }
-        else
-        {
-            leftHandPosition = simulationObject.transform.position;
-        }
-        HighlightRoutine();
     }
 
-    private void OnGrabPerformed(InputAction.CallbackContext context, Hand whichHand)
+    private void OnGrabPerformed(Hand whichHand)
     {
-        Vector3 _handPosition = whichHand == Hand.LEFT ? leftHandPosition : rightHandPosition;
+
+        Vector3 _handPosition = whichHand == Hand.LEFT ? leftHandTransform.position : rightHandTransform.position;
+        SpawnTestCube(_handPosition);
+        SpawnTestCube(rightHandInteractor.transform.position);
 
         for (int i = 0; i < interactionZones.Count; i++)
         {
@@ -119,33 +114,20 @@ public class InteractionManager : Manager
         }
     }
 
-    private void OnGrabLeftPerformed(InputAction.CallbackContext context)
+    private void OnObjectReleased(HandGrabInteractor interactor)
     {
-        OnGrabPerformed(context, Hand.LEFT);
-    }
+        for (int i = 0; i < interactionZones.Count; i++)
+        {
+            InteractionZone zone = interactionZones[i];
 
-    private void OnGrabLeftCanceled(InputAction.CallbackContext context)
-    {
-    }
-
-    private void OnGrabRightPerformed(InputAction.CallbackContext context)
-    {
-        OnGrabPerformed(context, Hand.RIGHT);
-    }
-
-    private void OnGrabRightCanceled(InputAction.CallbackContext context)
-    {
-    }
-
-    private void OnDisable()
-    {
-        xrInput.Grab.grabLeft.performed -= OnGrabLeftPerformed;
-        xrInput.Grab.grabLeft.canceled -= OnGrabLeftCanceled;
-
-        xrInput.Grab.grabRight.performed -= OnGrabRightPerformed;
-        xrInput.Grab.grabRight.canceled -= OnGrabRightCanceled;
-
-        xrInput.Disable();
+            if (Vector3.Distance(interactor.gameObject.transform.position, zone.transform.position) < zone.InteractionDistance)
+            {
+                var holdable = interactor.SelectedInteractable.GetComponent<Holdable>();
+                Hand _hand = interactor == leftHandInteractor ? Hand.LEFT : Hand.RIGHT; 
+                TimeManager.Instance.StartTimer(1, false, () => holdable.Despawn());
+                zone.Interact?.Invoke(InteractionType.USE, _hand);
+            }
+        }
     }
 
     private void HighlightRoutine()
@@ -154,14 +136,14 @@ public class InteractionManager : Manager
         {
             InteractionZone zone = interactionZones[i];
 
-            if (Vector3.Distance(leftHandPosition,zone.transform.position) < zone.HighlightDistance)
+            if (Vector3.Distance(leftHandTransform.position,zone.transform.position) < zone.HighlightDistance)
             {
-                zone.UpdateHighlight(Vector3.Distance(leftHandPosition, zone.transform.position));
+                zone.UpdateHighlight(Vector3.Distance(leftHandTransform.position, zone.transform.position), true);
             }
 
-             if (Vector3.Distance(rightHandPosition, zone.transform.position) < zone.HighlightDistance)
+             if (Vector3.Distance(rightHandTransform.position, zone.transform.position) < zone.HighlightDistance)
             {
-                zone.UpdateHighlight(Vector3.Distance(rightHandPosition, zone.transform.position));
+                zone.UpdateHighlight(Vector3.Distance(rightHandTransform.position, zone.transform.position), true);
             }
 
         }
@@ -178,15 +160,15 @@ public class InteractionManager : Manager
 
     public void RegisterHoldable(Holdable holdable)
     {
-        holdables.Add(holdable);
-       // holdable.GrabInteractable.WhenInteractorRemoved.Action += 
+        CurrentlyHeldObjects.Add(holdable);
+        holdable.GrabInteractable.WhenInteractorRemoved.Action += OnObjectReleased;
     }
     public void UnregisterHoldable(Holdable holdable)
     {
-        holdables.Remove(holdable);
+        CurrentlyHeldObjects.Remove(holdable);
     }
 
-    private GameObject SpawnTestCube()
+    public GameObject SpawnTestCube()
     {
         Vector3 _spawnPosition = Camera.main.transform.position + Camera.main.transform.forward * 0.5f;
         Quaternion _spawnRotation = Quaternion.identity;
@@ -199,7 +181,7 @@ public class InteractionManager : Manager
         return cube;
     }
 
-    private GameObject SpawnTestCube(Vector3 position)
+    public GameObject SpawnTestCube(Vector3 position)
     {
         Vector3 _spawnPosition = position;
         Quaternion _spawnRotation = Quaternion.identity;
@@ -209,11 +191,5 @@ public class InteractionManager : Manager
         cube.transform.rotation = _spawnRotation;
         cube.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
         return cube;
-    }
-
-    [Button]
-    public void SimulateGrab()
-    {
-
     }
 }

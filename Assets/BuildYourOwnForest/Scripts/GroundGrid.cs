@@ -13,9 +13,10 @@ public class GroundGrid : SerializedMonoBehaviour
     [TitleGroup("References")]
     [SerializeField] private InteractionZone zonePrefab;
 
+    [TitleGroup("Variables")]
+    [ReadOnly][SerializeField] private float gridHeight = 0f;
     [TitleGroup("Data")]
     [ReadOnly][SerializeField][TableMatrix(DrawElementMethod = "DrawElement")] private GridSpace[,] grid;
-    [ReadOnly][SerializeField] private float gridHeight => transform.position.y;
 
     [Serializable]
     private class GridSpace
@@ -38,7 +39,9 @@ public class GroundGrid : SerializedMonoBehaviour
     public void SetGridSize(int rows,int cols)
     {
         grid = new GridSpace[rows, cols];
+        transform.position = new Vector3( -(rows / 2),gridHeight, -(cols / 2));
     }
+
 
     [Button]
     /// <summary>

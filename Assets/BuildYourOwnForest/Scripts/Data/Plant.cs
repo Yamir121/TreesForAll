@@ -10,18 +10,18 @@ public class Plant : ScriptableObject
     public GridObject GridObject => gridObject;
     public string PlantName => plantName;
     public int GrowthStages => growthStages;
-    public GroundType IndigiousLocation => indigiousLocation;
+    public Location IndigiousLocation => indigiousLocation;
 
     public Vector3 Attributes => new Vector3(carbonStorage, biodiversity, soilQuality);
 
+    [SerializeField] private string plantName;
     [TitleGroup("References")]
     [SerializeField] private Selectable selectionObject;
     [SerializeField] private Seed seedObject;
     [SerializeField] private GridObject gridObject;
     [TitleGroup("Variables")]
-    [SerializeField] private string plantName;
     [Range(1, 5)][SerializeField] private int growthStages;
-    [SerializeField] private GroundType indigiousLocation;
+    [SerializeField] private Location indigiousLocation;
 
     [TitleGroup("Attributes")]
     [SerializeField] private int carbonStorage;
