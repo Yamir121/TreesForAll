@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Northeast-India
   m_EditorClassIdentifier: 
   worldLocation: Noord-Oost India
-  availablePlants: []
+  availablePlants:
+  - {fileID: 11400000, guid: 34252f65918ab1241869fe3fbae9ef32, type: 2}

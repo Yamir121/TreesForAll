@@ -45,11 +45,11 @@ public class LevelManager : Manager
     {
         //Get selectionObjects from the availableplants.
         var list = new List<Selectable>();
+        list.Add(wateringCan);
         for (int i = 0; i < location.AvailablePlants.Count; i++)
         {
           list.Add(location.AvailablePlants[i].SelectionObject);
         }
-        list.Add(wateringCan);
         //Spawn the plants selection and watering can
         selectionTable.SpawnAndFillSelectionSlots(list);
 

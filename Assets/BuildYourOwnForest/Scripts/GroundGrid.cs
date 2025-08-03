@@ -39,7 +39,7 @@ public class GroundGrid : SerializedMonoBehaviour
     public void SetGridSize(int rows,int cols)
     {
         grid = new GridSpace[rows, cols];
-        transform.position = new Vector3( -(rows / 2),gridHeight, -(cols / 2));
+        transform.position = new Vector3( -((float)rows / 2),gridHeight, -((float)cols / 2));
     }
 
 
