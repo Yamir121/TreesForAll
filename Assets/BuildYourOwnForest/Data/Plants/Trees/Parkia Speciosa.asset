@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4802786404d9143bf6d2aa50bf4642, type: 3}
+  m_Name: Parkia Speciosa
+  m_EditorClassIdentifier: 
+  plantName: Parkia Speciosa Boom
+  plantType: 0
+  selectionObject: {fileID: 7501436139151509466, guid: 633605609ed97b746a51fc085d23550c, type: 3}
+  seedObject: {fileID: 3017193604960726009, guid: ca7a9bb9897063f41aac9a56be9158dd, type: 3}
+  gridObject: {fileID: 4104773225715769891, guid: aff0f578d68c84e4dba7382fc56fa6fa, type: 3}
+  growthStages: 5
+  indigiousLocation: {fileID: 11400000, guid: 8c7b51f4dc774fd4fb6b4d881abf6b79, type: 2}
+  carbonStorage: 27
+  biodiversity: 43
+  soilQuality: 0

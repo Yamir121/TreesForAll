@@ -9,13 +9,13 @@ public class LevelManager : Manager
     private float levelLength => GameManager.Instance.LevelLength;
 
     [TitleGroup("High Level Objects")]
-    [SerializeField] private WateringCan wateringCan;
+    [SerializeField] private Selectable wateringCanSelectionObject;
     [SerializeField] private SelectionTable selectionTable;
     //[TitleGroup("Variables")]
     
     [TitleGroup("Data")]
     [ReadOnly][SerializeField] private GroundGrid activeGrid;
-    [ReadOnly][SerializeField] private LevelInstance activeLevel;
+    [ReadOnly][SerializeField] private LevelInstance currentLevel;
     [ReadOnly][SerializeField] private TimeManager.Timer activelevelTimer;
 
     [Serializable]
@@ -30,6 +30,7 @@ public class LevelManager : Manager
         public Location location;
         public Challenge challenge;
         public int timeElapsed;
+        public bool isActive;
     }
 
     private void Awake()
@@ -44,7 +45,7 @@ public class LevelManager : Manager
 
     private void Update()
     {
-        if (activeLevel!= null) 
+        if (currentLevel.isActive) 
         {
             LevelUpdate();
         }
@@ -54,7 +55,7 @@ public class LevelManager : Manager
     {
         //Get selectionObjects from the availableplants.
         var list = new List<Selectable>();
-        list.Add(wateringCan);
+        list.Add(wateringCanSelectionObject);
         for (int i = 0; i < location.AvailablePlants.Count; i++)
         {
           list.Add(location.AvailablePlants[i].SelectionObject);
@@ -67,12 +68,14 @@ public class LevelManager : Manager
         activeGrid.SetGridSize((int)GameManager.Instance.GroundSize.x, (int)GameManager.Instance.GroundSize.y);
         activeGrid.PopulateGrid();
         activelevelTimer = TimeManager.Instance.StartTimer(levelLength,true, EndLevelInstance);
-        activeLevel = new LevelInstance(location, challenge);
+        UIManager.Instance.ShowHUD();
+        currentLevel = new LevelInstance(location, challenge);
+        currentLevel.isActive = true;
     }
 
     private void LevelUpdate()
     {
-        if (activeLevel.timeElapsed != (int)activelevelTimer.GetCurrentTime())
+        if (currentLevel.timeElapsed != (int)activelevelTimer.GetCurrentTime())
         {
             UIManager.Instance.UpdateHUDTimer((int)activelevelTimer.GetCurrentTime());
         }
@@ -81,7 +84,7 @@ public class LevelManager : Manager
 
     public void EndLevelInstance()
     {
-
+        UIManager.Instance.HideHUD();
     }
 
     /// <summary>

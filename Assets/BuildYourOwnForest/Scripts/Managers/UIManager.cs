@@ -47,4 +47,14 @@ public class UIManager : Manager
         startUIWindow.gameObject.SetActive(false);
     }
 
+    public void ShowHUD()
+    {
+        hud.gameObject.SetActive(true); 
+    }
+
+    public void HideHUD()
+    {
+        hud.gameObject.SetActive(false);
+    }
+
 }

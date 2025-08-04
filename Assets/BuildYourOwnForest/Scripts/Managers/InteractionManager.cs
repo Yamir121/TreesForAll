@@ -96,8 +96,6 @@ public class InteractionManager : Manager
     {
 
         Vector3 _handPosition = whichHand == Hand.LEFT ? leftHandTransform.position : rightHandTransform.position;
-        SpawnTestCube(_handPosition);
-        SpawnTestCube(rightHandInteractor.transform.position);
 
         for (int i = 0; i < interactionZones.Count; i++)
         {
@@ -106,7 +104,7 @@ public class InteractionManager : Manager
             {
                 if (zone.AcceptedInteractionTypes.Contains(InteractionType.SELECT))
                 {
-                    zone.Interact?.Invoke(InteractionType.SELECT, whichHand);
+                    zone.Interact?.Invoke(InteractionType.SELECT, whichHand, null);
                     return;
                 }
             }
@@ -121,10 +119,10 @@ public class InteractionManager : Manager
 
             if (Vector3.Distance(interactor.gameObject.transform.position, zone.transform.position) < zone.InteractionDistance)
             {
-                var holdable = interactor.SelectedInteractable.GetComponent<Holdable>();
+                var holdable = interactor.SelectedInteractable.transform.parent.gameObject.GetComponent<Holdable>();
                 Hand _hand = interactor == leftHandInteractor ? Hand.LEFT : Hand.RIGHT; 
                 TimeManager.Instance.StartTimer(1, false, () => holdable.Despawn());
-                zone.Interact?.Invoke(InteractionType.USE, _hand);
+                zone.Interact?.Invoke(InteractionType.USE, _hand, holdable);
             }
         }
     }

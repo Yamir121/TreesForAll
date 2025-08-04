@@ -12,7 +12,7 @@ public abstract class Selectable : MonoBehaviour
         interactionZone.Interact += Select;
     }
 
-    public abstract void Select(InteractionManager.InteractionType type, InteractionManager.Hand hand);
+    public abstract void Select(InteractionManager.InteractionType type, InteractionManager.Hand hand, Holdable holdable);
 
     private void OnDisable()
     {

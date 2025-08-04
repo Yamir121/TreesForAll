@@ -37,7 +37,7 @@ public class WateringCan : Selectable
         return Mathf.Clamp(normalized, -1f, 1f);
     }
 
-public override void Select(InteractionManager.InteractionType type, InteractionManager.Hand hand)
+public override void Select(InteractionManager.InteractionType type, InteractionManager.Hand hand, Holdable holdable)
     {
         
     }

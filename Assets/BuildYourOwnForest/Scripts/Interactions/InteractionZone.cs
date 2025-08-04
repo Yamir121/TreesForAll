@@ -15,7 +15,7 @@ public class InteractionZone : MonoBehaviour
 
     public InteractionManager.InteractionType[] AcceptedInteractionTypes => acceptedInteractionTypes;
 
-    public Action<InteractionManager.InteractionType,InteractionManager.Hand> Interact;
+    public Action<InteractionManager.InteractionType,InteractionManager.Hand, Holdable> Interact;
 
     [TitleGroup("References")]
     [SerializeField] private Renderer highlightVisual;

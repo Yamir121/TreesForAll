@@ -38,10 +38,15 @@ public class GameManager : Manager
         Instance = this;
     }
 
+    private void Start()
+    {
+        StartGame();
+    }
+
     [Button]
     private void StartGame()
     {
-        Debug.Log("Game Has Started");
+        Debug.Log("Game Has Started!");
         StartCoroutine(GameSequence());
     }
 
@@ -84,12 +89,12 @@ public class GameManager : Manager
 
     private Challenge GetRandomChallengeFromPool()
     {
-        return challengePool[Random.Range(0, challengePool.Count - 1)];
+        return challengePool[Random.Range(0, challengePool.Count)];
     }
 
     private Location GetRandomLocationFromPool()
     {
-        return locationsPool[Random.Range(0, locationsPool.Count - 1)];
+        return locationsPool[Random.Range(0, locationsPool.Count)];
     }
 
 }

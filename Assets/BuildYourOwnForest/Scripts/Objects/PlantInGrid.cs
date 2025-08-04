@@ -6,16 +6,19 @@ using UnityEngine;
 public class PlantInGrid : GridObject
 {
     public int CurrentGrowthStage => currentGrowthStage;
+    public float ProgressToNextStage => progressToNextStage;
+
 
     [TitleGroup("References")]
     private GameObject mesh;
 
     [TitleGroup("Variables")]
     [SerializeField] private List<float> growthStageObjectScales;
-    [Button] public void ResetSizeToGrowthStages() => growthStageObjectScales.SetLength(plantData.GrowthStages);
+    [Button] public void ResetSizeToGrowthStages() => growthStageObjectScales.SetLength(plantData.MaxGrowthStage);
 
     [TitleGroup("Data")]
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)][SerializeField] private Plant plantData;
+    [SerializeField] private float progressToNextStage = 0f;
     [ReadOnly][Range(1, 5)][SerializeField] private int currentGrowthStage = 1;
 
     public void Start()
@@ -28,22 +31,37 @@ public class PlantInGrid : GridObject
         TimeManager.Instance.StartTimer(5, true, () => GrowOneStage());
     }
 
+    public void AddProgressToNextStage(float amount)
+    {
+        progressToNextStage += amount;
+    }
+
     public void Grow(int growthAmount)
     {
-        currentGrowthStage += growthAmount;
-        UpdateGrowthStage();
+        if (currentGrowthStage != plantData.MaxGrowthStage) 
+        { 
+            currentGrowthStage += growthAmount;
+            UpdateGrowthStage();
+        }
     }
 
     public void SetGrowthstage(int stage)
     {
-        currentGrowthStage = stage;
-        UpdateGrowthStage();
+        if (currentGrowthStage != plantData.MaxGrowthStage)
+        {
+            currentGrowthStage = stage;
+            UpdateGrowthStage();
+        }
+            
     }
 
     public void GrowOneStage()
     {
-        currentGrowthStage += 1;
-        UpdateGrowthStage();
+        if (currentGrowthStage != plantData.MaxGrowthStage)
+        {
+            currentGrowthStage += 1;
+            UpdateGrowthStage();
+        }
     }
 
     public void Wither()

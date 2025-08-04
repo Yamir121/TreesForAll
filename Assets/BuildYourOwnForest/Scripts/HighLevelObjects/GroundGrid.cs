@@ -4,6 +4,8 @@ using System.Drawing;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
+
 #if UNITY_EDITOR
 using UnityEditorInternal;
 #endif
@@ -11,15 +13,18 @@ using UnityEditorInternal;
 public class GroundGrid : SerializedMonoBehaviour
 {
     [TitleGroup("References")]
-    [SerializeField] private InteractionZone zonePrefab;
+    [SerializeField] private EmptyGridSpace gridSpacePrefab;
 
     [TitleGroup("Variables")]
     [ReadOnly][SerializeField] private float gridHeight = 0f;
+    [ReadOnly][SerializeField] private float plantGrowthPerSecond = 0.05f; //1 second accounts for 5% towards the next growth stage.
     [TitleGroup("Data")]
     [ReadOnly][SerializeField][TableMatrix(DrawElementMethod = "DrawElement")] private GridSpace[,] grid;
+    
+    private int lastGrowthTick;
 
     [Serializable]
-    private class GridSpace
+    public class GridSpace
     {
         public GridSpace(Vector3 position)
         {
@@ -56,7 +61,9 @@ public class GroundGrid : SerializedMonoBehaviour
             for (int col = 0; col < grid.GetLength(1); col++)
             {
                 grid[row, col] = new GridSpace(new Vector3(row - offset.x, gridHeight, col - offset.y));
-                Instantiate(zonePrefab, grid[row, col].position, Quaternion.identity, gameObject.transform);
+                EmptyGridSpace gridspaceObject = Instantiate(gridSpacePrefab, grid[row, col].position, Quaternion.identity, gameObject.transform);
+                //gridspaceObject.GridSpace = grid[row, col];
+                //refractor to the point that the gridspaces are monobehaviours
             }
         }
     }
@@ -71,6 +78,34 @@ public class GroundGrid : SerializedMonoBehaviour
     {
         GridSpace _gridSpace = grid[x - 1, y - 1];
         _gridSpace.occupyingObject = Instantiate(plant.GridObject, new Vector3(_gridSpace.position.x, gridHeight, _gridSpace.position.z), Quaternion.identity, this.transform);
+    }
+
+    public void UpdateAllOccupyingObjects()
+    {
+        if ((int)TimeManager.Instance.LevelTime != lastGrowthTick)
+        {
+            lastGrowthTick = (int)TimeManager.Instance.LevelTime;
+
+            for (int row = 0; row < grid.GetLength(0); row++)
+            {
+                for (int col = 0; col < grid.GetLength(1); col++)
+                {
+                    if (grid[row, col].occupyingObject is PlantInGrid)
+                    {
+                        PlantInGrid _plant = (PlantInGrid)grid[row, col].occupyingObject;
+                        if (_plant.ProgressToNextStage == 1)
+                        {
+                            _plant.GrowOneStage();
+                        }
+                        else
+                        {
+                            _plant.AddProgressToNextStage(plantGrowthPerSecond);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     public void RemoveGridObjectAtIndex(int x, int y)

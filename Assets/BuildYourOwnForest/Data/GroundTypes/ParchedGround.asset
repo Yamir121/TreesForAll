@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01185c7adb1e6345b55f52ccf8a111b, type: 3}
+  m_Name: ParchedGround
+  m_EditorClassIdentifier: 
+  groundTypeName: Uitgeloogde leembodem
+  groundGrid: {fileID: 1991831262181153535, guid: d11ff9f9af90adb4c9136d72e9b7b818, type: 3}
+  carbonStorage: 23
+  biodiversity: 16
+  soilQuality: 44

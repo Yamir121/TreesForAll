@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01185c7adb1e6345b55f52ccf8a111b, type: 3}
   m_Name: Leached Loamy Soil
   m_EditorClassIdentifier: 
-  groundTypeName: 'Uitgeloogde leembodem  '
+  groundTypeName: Uitgeloogde leembodem
   groundGrid: {fileID: 5735490511502577893, guid: bc614f64445c160409066b6247ec690c, type: 3}
-  carbonStorage: 43
-  biodiversity: 71
-  soilQuality: 16
+  carbonStorage: 14
+  biodiversity: 57
+  soilQuality: 9

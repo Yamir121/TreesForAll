@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c985fc6fb6842ca46802c1b338a032ec, type: 3}
+  m_Name: ClimateChange
+  m_EditorClassIdentifier: 
+  explanation: Door periodes van extreme hitte zijn er geregeld bosbranden waardoor
+    bossen verdwijnen.
+  groundType: {fileID: 11400000, guid: 24e94b52689894344a9394087ef6eb5b, type: 2}

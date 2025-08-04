@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c985fc6fb6842ca46802c1b338a032ec, type: 3}
-  m_Name: Challenge
+  m_Name: IntenseRainfall
   m_EditorClassIdentifier: 
-  Explanation: 'Na intensieve regenval is de aardbodem ernstig uitgespoeld waardoor
+  explanation: 'Na intensieve regenval is de aardbodem ernstig uitgespoeld waardoor
     er een groot tekort aan voedingstoffen is. '
   groundType: {fileID: 11400000, guid: 4272d53fd1272d94da092365f93503d8, type: 2}

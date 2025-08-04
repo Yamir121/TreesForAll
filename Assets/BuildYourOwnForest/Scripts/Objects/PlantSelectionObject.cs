@@ -18,7 +18,7 @@ public class PlantSelectionObject : Selectable
         informationWindow.SetValues(plantData.PlantName, plantData.IndigiousLocation.WorldLocation, (int)plantData.Attributes.x, (int)plantData.Attributes.y, (int)plantData.Attributes.z);
     }
     [Button]
-    public override void Select(InteractionManager.InteractionType type, InteractionManager.Hand hand)
+    public override void Select(InteractionManager.InteractionType type, InteractionManager.Hand hand, Holdable holdable)
     {
         InteractionManager.Instance.SpawnTestCube(gameObject.transform.position + (Vector3.up * 2));
         if (type == InteractionManager.InteractionType.SELECT)

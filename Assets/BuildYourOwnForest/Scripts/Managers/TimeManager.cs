@@ -102,6 +102,11 @@ public class TimeManager : Manager {
         timers.Clear();
     }
 
+    public void PauseSpecificTimer(Timer timer)
+    {
+        
+    }
+
     public void StopSpecificTimer(Timer timer)
     {
         timers.Remove(timer);

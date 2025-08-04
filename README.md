@@ -1,39 +1,45 @@
 # TreesForAll: VR Awareness Campaign
 
-Om een totaalbeeld te geven van mijn vaardigheden heb ik deze opdracht beschouwd als het ontwerpen en ontwikkelen van een toegepaste VR oplossing, net zoals dat voor projecten voor KLM en NS zou gelden.
+### Interpetatie Opdracht:
+De kracht van VR gebruiken / optimaliseren door het in te zetten voor een awareness campagne over de bebossingsprojecten waar Trees for All aan bijdraagt.
 
-Om deze reden heb wat context erom heen geschept waarbinnen ik de applied game kon ontwikkelen. Zo heb ik Trees for All als stakeholder genomen en algemeen publiek (dus niet-gamers) als doelgroep.
+**Het doel:**
+spelers ervaren de uitdagingen en successen in het bebossen van een gebied.
+Om een doelgerichte, effectieve applied game te ontwikkelen waarin de doelgroep centraal staan binnen de opgestelde kaders en vereisten, is het van belang om een context scheppen. 
 
-**Mijn doel:**
-Het maken van een reforestation awareness applied game voor Trees for All, binnen de kaders van deze assessment.
-
-**Oplossing:**
-Gebruikmaken van VR voor een awareness campagne over de bebossingsprojecten waar Trees for All aan bijdraagt. Het opnieuw bebossen van bestaande gebieden is complexer dan simpelweg bomen planten. Zo is het belangrijk om inheemse soorten te gebruiken en nauwkeurig een nieuw ecosysteem op te zetten en vereisen verschillende problemen een andere aanpak.
-
-Deze complexiteit in combinatie met het bewustzijn dat bossen niet vanzelf weer aangroeien, ookal doet de natuur zijn werk, is een belangrijk besef volgens de website van Trees for All. Niet elke boom overleeft. Een gezond bos vraagt om de juiste bomen op de juiste plek, goede voorbereiding van de bodem én aanpassing aan klimaatverandering.
+**TreesForAll:**
+Doel vanuit Trees for All: gedachte meegeven dat opnieuw bebossen van bestaande gebieden is complexer dan simpelweg bomen planten. 
+Zo is het bijvoorbeeld belangrijk om inheemse soorten te gebruiken en nauwkeurig een nieuw ecosysteem op te zetten, verschillende problemen vereisen een andere aanpak, bossen groeien niet vanzelf weer aan, ook al doet de natuur zijn werk. 
+-
+    _“Een gezond bos vraagt om de juiste bomen op de juiste plek, goede voorbereiding van de bodem én aanpassing aan klimaatverandering.” 
+    – website Trees for All_
 
 # Concept
 
 ### "Build Your Own Forest"
-
-    * Te spelen op o.a. NS-stations (denk aan pop-up Utrecht Centraal), festivals, of openbare ruimtes
-    * VR-ervaring van max. 5 minuten per speler
-    * De speler krijgt een realistische uitdaging en het doel om een klein stuk grond opnieuw te bebossen.
-    * Resultaat deelbaar op social media voor bredere impact
+* Te spelen op o.a. NS-stations (denk aan pop-up Utrecht Centraal), festivals, of openbare ruimtes
+* VR-ervaring van max. 5 minuten per speler
+* De speler krijgt een realistische uitdaging en het doel om een klein stuk grond opnieuw te bebossen.
+* Resultaat deelbaar op social media voor bredere impact
 
 ### Gameplay
-De speler start met een casus: gebied in de wereld, bodemtype, beginwaardes en één van drie ecologische problemen. Binnen vijf minuten moet hij een bos planten door slim te planten, water te geven en verstoringen op te ruimen.
+Doel voor de speler: herbebos een gebied zo goed mogelijk.
 
-Op basis van het ecologische probleem: slechte bodem, zaadgebrek of klimaatverandering, hebben verschillen planten de voorkeur. Zo kan de speler bodembedekkers, zaaddragende struiken, klimaatbestendige bomen, inheemse bomen en meer planten. Een tipsysteem in combinatie met realtime effect van de keuzes in de vorm van 3 statusbalken in het user-interface, geeft de speler inzicht in voortgang.
-
+Stappenplan voor de speler:
+1.	De speler krijgt 5 minuten de tijd om een bos te planten
+Hierin is het de uitdaging om slim te planten en verstoringen op te ruimen. Alle spelers starten met een gebied in de wereld, bodemtype, beginwaardes en één van drie ecologische problemen.
+2.	De speler krijgt de mogelijkheid om dit bos uit te breiden en ontstane ecologische problemen op te lossen
+Op basis van het ecologische probleem: slechte bodem, zaadgebrek of klimaatverandering, hebben verschillen planten de voorkeur. Zo kan de speler bodembedekkers, zaaddragende struiken, klimaatbestendige bomen, inheemse bomen en meer planten. 
+Een tipsysteem in combinatie met realtime effect van de keuzes in de vorm van 3 statusbalken in het user-interface, geeft de speler inzicht in voortgang.
+3.	De speler krijgt een inzicht op hoe hij / zij het heeft gedaan, op basis van biodiversiteit, grondkwaliteit en CO2-opslag capaciteit.
 Aan het eind krijgt de speler een score op basis van de 3 statusbalken en efficiëntie. Ongeacht de score zijn spelers creatief bezig geweest met een ecologische uitdaging en hebben ze een uniek eigen bos gemaakt. De score én de spelers zelf gemaakte bos kunnen gedeeld worden op social media om delen te stimuleren.
 
 # Technische uitwerking
 
 ### Lijst aan gebruikte assets
-    * Synty Polygon Pack
-    * https://www.freepik.com/free-vector/wooden-frames-buttons-with-jungle-leaves_133568965.htm
-    * https://sketchfab.com/3d-models/watering-can-ffb0d644238b4c679658aa0ee46ac6da
+* Synty Polygon Pack
+* https://www.freepik.com/free-vector/wooden-frames-buttons-with-jungle-leaves_133568965.htm
+* https://sketchfab.com/3d-models/watering-can-ffb0d644238b4c679658aa0ee46ac6da
 
 ### Lijst van ontwikkeltools en plugins
     * Unity 6000.1.1f1

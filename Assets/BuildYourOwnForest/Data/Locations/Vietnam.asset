@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb49a8e50b67d6344a633e0fd0f9dfd6, type: 3}
-  m_Name: Northeast-India
+  m_Name: Vietnam
   m_EditorClassIdentifier: 
-  worldLocation: Noord-Oost India
+  worldLocation: Vietnam
   availablePlants:
-  - {fileID: 11400000, guid: 34252f65918ab1241869fe3fbae9ef32, type: 2}
+  - {fileID: 11400000, guid: 2af13df7606cb0b4ba3ceca0eaf4e91f, type: 2}
+  - {fileID: 11400000, guid: b236b115e3274054698bd8710b6b6c7e, type: 2}
+  - {fileID: 11400000, guid: 83894ebec2d8c6840a9614e59fcb8d94, type: 2}
+  - {fileID: 11400000, guid: 2506c92833679734eb45ea4f032b653a, type: 2}

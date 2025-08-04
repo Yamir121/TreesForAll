@@ -374,7 +374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7172639213824705826
 Transform:
   m_ObjectHideFlags: 0
@@ -423,8 +423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedTransform: {fileID: 0}
-  distanceFromHead: 0.5
-  heightOffset: 0
+  distanceFromHead: 0.65
+  heightOffset: -0.1
   smoothTime: 0.3
 --- !u!1 &1729237565394143638
 GameObject:
@@ -1012,8 +1012,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Na intensieve regenval is de aardbodem ernstig uitgespoeld waardoor er
-    een groot tekort aan voedingstoffen is. '
+  m_text: Door periodes van extreme hitte ontstaan er bosbranden waardoor bossen
+    verdwijnen.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a66867ece5cf0324aa09f35b4c9e71d8, type: 2}
   m_sharedMaterial: {fileID: -1089703969113038697, guid: a66867ece5cf0324aa09f35b4c9e71d8, type: 2}
@@ -1224,7 +1224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d747fc7028277bf49aafaf4be3f524ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1263,7 +1263,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5663554316311664667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -20.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1694,7 +1694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 44ea5d44be8ee3046a84429d95a42bd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1982,7 +1982,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: cb341540707deb84e93a063c279b923a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

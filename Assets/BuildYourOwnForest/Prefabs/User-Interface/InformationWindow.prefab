@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2299377631616272951}
   - component: {fileID: 7153908622274546463}
   - component: {fileID: 9063413698930224384}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Value2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 731343884698242397}
   - component: {fileID: 2696372750858886200}
   - component: {fileID: 2659916118545839992}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: IconValue2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d747fc7028277bf49aafaf4be3f524ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 3700394185615794451}
   - component: {fileID: 7656333587503723818}
   - component: {fileID: 6138650743136139679}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Value3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 1754100321650759808}
   - component: {fileID: 5273860547173847568}
   - component: {fileID: 2001873147022212772}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Value1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 765473598072308733}
   - component: {fileID: 6877618820586352881}
   - component: {fileID: 4282735913712417956}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: IconValue1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: cb341540707deb84e93a063c279b923a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 3648030280242043323}
   - component: {fileID: 1152309385019784315}
   - component: {fileID: 8945235434539806149}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: IndigiousLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 7480023176595311924}
   - component: {fileID: 1902498480162730140}
   - component: {fileID: 4287657630017959180}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: PlantName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,7 +844,7 @@ GameObject:
   - component: {fileID: 6268690620002095984}
   - component: {fileID: 465727375621837395}
   - component: {fileID: 190482776896438244}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: InformationWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 5981446606680394689}
   - component: {fileID: 7985083886559493959}
   - component: {fileID: 3584488308062307434}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 9004525163183516586}
   - component: {fileID: 7278688747354101610}
   - component: {fileID: 5758566278681245737}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: LocationIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1076,15 +1076,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.78113204, g: 0.78113204, b: 0.78113204, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9b196f5aceccf5c4381e48d7838f45df, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 3804839881642931970}
   - component: {fileID: 4619514179524711809}
   - component: {fileID: 1255304901494337760}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: IconValue3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 44ea5d44be8ee3046a84429d95a42bd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
