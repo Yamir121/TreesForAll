@@ -41,8 +41,7 @@ public class InteractionManager : Manager
     [SerializeField] private Transform rightHandTransform;
 
     [TitleGroup("Settings")]
-    [SerializeField] private bool interactionsActive;
-    //[SerializeField] private bool isSimulating = false;
+    [SerializeField] private bool interactionsActive = true;
 
     [TitleGroup("Data")]
     [ReadOnly][SerializeField] private bool leftHandIsGrabbing;

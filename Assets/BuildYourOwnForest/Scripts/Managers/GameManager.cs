@@ -55,6 +55,7 @@ public class GameManager : Manager
         
         yield return new WaitUntil(() => startUIWindow.ButtonPressed);
         //Start level instance
+        UIManager.Instance.HideStartUIWindow();
         LevelManager.Instance.StartLevelInstance(chosenLocation, chosenChallenge);
     }
 

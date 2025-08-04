@@ -16,6 +16,7 @@ public class LevelManager : Manager
     [TitleGroup("Data")]
     [ReadOnly][SerializeField] private GroundGrid activeGrid;
     [ReadOnly][SerializeField] private LevelInstance activeLevel;
+    [ReadOnly][SerializeField] private TimeManager.Timer activelevelTimer;
 
     [Serializable]
     private class LevelInstance
@@ -28,6 +29,7 @@ public class LevelManager : Manager
 
         public Location location;
         public Challenge challenge;
+        public int timeElapsed;
     }
 
     private void Awake()
@@ -40,6 +42,13 @@ public class LevelManager : Manager
         Instance = this;
     }
 
+    private void Update()
+    {
+        if (activeLevel!= null) 
+        {
+            LevelUpdate();
+        }
+    }
 
     public void StartLevelInstance(Location location, Challenge challenge)
     {
@@ -57,7 +66,22 @@ public class LevelManager : Manager
         activeGrid = Instantiate(challenge.GroundType.GroundGrid,transform.position,Quaternion.identity);
         activeGrid.SetGridSize((int)GameManager.Instance.GroundSize.x, (int)GameManager.Instance.GroundSize.y);
         activeGrid.PopulateGrid();
+        activelevelTimer = TimeManager.Instance.StartTimer(levelLength,true, EndLevelInstance);
         activeLevel = new LevelInstance(location, challenge);
+    }
+
+    private void LevelUpdate()
+    {
+        if (activeLevel.timeElapsed != (int)activelevelTimer.GetCurrentTime())
+        {
+            UIManager.Instance.UpdateHUDTimer((int)activelevelTimer.GetCurrentTime());
+        }
+    }
+
+
+    public void EndLevelInstance()
+    {
+
     }
 
     /// <summary>

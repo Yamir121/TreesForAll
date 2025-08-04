@@ -15,22 +15,28 @@ public class TimeManager : Manager {
     private float interruptionTime;
     [SerializeField] private List<Timer> timers = new();
 
-    public struct Timer {
-        public float StartTime;
-        public float Duration;
-        public bool UseLevelTime;
-        public Action OnComplete;
-
+    public class Timer {
         public Timer(float currentTime,float duration,bool useLevelTime,Action onComplete) {
             this.StartTime = currentTime;
             this.Duration = duration;
             this.UseLevelTime = useLevelTime;
             this.OnComplete = onComplete;
         }
+
+        public float StartTime;
+        public float Duration;
+        public float currentTime;
+        public bool UseLevelTime;
+        public Action OnComplete;
+
+        public float GetCurrentTime()
+        {
+            return this.currentTime;
+        }
     }
 
 
-    void Awake() 
+    private void Awake() 
     {
         if (Instance != null && Instance != this)
         {
@@ -40,7 +46,7 @@ public class TimeManager : Manager {
         Instance = this;
     }
 
-    void Update() 
+    private void Update() 
     {
         if (!isLevelTimeInterrupted) 
         {
@@ -48,8 +54,8 @@ public class TimeManager : Manager {
 
             for (int i = timers.Count - 1; i >= 0; i--) 
             {
-                float currentTime = timers[i].UseLevelTime ? levelTime : GameTime;
-                if (currentTime >= timers[i].StartTime + timers[i].Duration) 
+                timers[i].currentTime = timers[i].UseLevelTime ? levelTime : GameTime;
+                if (timers[i].currentTime >= timers[i].StartTime + timers[i].Duration) 
                 {
                     timers[i].OnComplete();
                     timers.RemoveAt(i);
@@ -96,7 +102,7 @@ public class TimeManager : Manager {
         timers.Clear();
     }
 
-    public void InterruptSpecificTimer(Timer timer)
+    public void StopSpecificTimer(Timer timer)
     {
         timers.Remove(timer);
     }

@@ -32,7 +32,6 @@ public class InteractionZone : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log(InteractionManager.Instance);
         InteractionManager.Instance.RegisterInteractionZone(this);
     }
 
