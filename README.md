@@ -5,10 +5,12 @@
 De kracht van VR gebruiken door het in te zetten voor een awareness campagne over de bebossingsprojecten waar Trees for All aan bijdraagt.
 
 **Het doel**
-spelers ervaren de uitdagingen en successen bij het bebossen van een gebied.
+
+Spelers ervaren de uitdagingen en successen bij het bebossen van een gebied.
 Om een doelgerichte, effectieve applied game te ontwikkelen waarin de doelgroep centraal staan binnen de opgestelde kaders en vereisten, is het van belang om een context scheppen. 
 
 **TreesForAll**
+
 Doel vanuit Trees for All: gedachte meegeven dat opnieuw bebossen van bestaande gebieden complexer is dan simpelweg bomen planten. 
 Zo is het bijvoorbeeld belangrijk om inheemse soorten te gebruiken en nauwkeurig een nieuw ecosysteem op te zetten, verschillende problemen vereisen een andere aanpak. Bebossing is essentieel voor de toekomst van de planeet. Bossen groeien niet vanzelf weer aan, ook al doet de natuur zijn werk. 
 
