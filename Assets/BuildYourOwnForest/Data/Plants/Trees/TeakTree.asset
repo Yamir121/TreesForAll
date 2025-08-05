@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TeakTree
   m_EditorClassIdentifier: 
   plantName: Teakboom
-  plantType: 0
+  plantType: 2
   selectionObject: {fileID: 103332412816864046, guid: 835ed95bb43a87e4cbf42d51d27a0775, type: 3}
   seedObject: {fileID: 1006838704674488077, guid: c9e2c55ad3654cc4992aa29cfc4b9e77, type: 3}
   gridObject: {fileID: 6855469357464241401, guid: ad688af31fa2a0d4b88425aa1dae0de7, type: 3}

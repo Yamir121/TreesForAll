@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Parkia Speciosa
   m_EditorClassIdentifier: 
   plantName: Parkia Speciosa Boom
-  plantType: 0
+  plantType: 2
   selectionObject: {fileID: 7501436139151509466, guid: 633605609ed97b746a51fc085d23550c, type: 3}
   seedObject: {fileID: 3017193604960726009, guid: ca7a9bb9897063f41aac9a56be9158dd, type: 3}
   gridObject: {fileID: 4104773225715769891, guid: aff0f578d68c84e4dba7382fc56fa6fa, type: 3}

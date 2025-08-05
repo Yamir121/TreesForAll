@@ -1,45 +1,74 @@
 # TreesForAll: VR Awareness Campaign
 
-### Interpetatie Opdracht:
+### Interpetatie Opdracht
 
 De kracht van VR gebruiken / optimaliseren door het in te zetten voor een awareness campagne over de bebossingsprojecten waar Trees for All aan bijdraagt.
 
-**Het doel:**
+**Het doel**
 spelers ervaren de uitdagingen en successen in het bebossen van een gebied.
 Om een doelgerichte, effectieve applied game te ontwikkelen waarin de doelgroep centraal staan binnen de opgestelde kaders en vereisten, is het van belang om een context scheppen. 
 
-**TreesForAll:**
-Doel vanuit Trees for All: gedachte meegeven dat opnieuw bebossen van bestaande gebieden is complexer dan simpelweg bomen planten. 
-Zo is het bijvoorbeeld belangrijk om inheemse soorten te gebruiken en nauwkeurig een nieuw ecosysteem op te zetten, verschillende problemen vereisen een andere aanpak, bossen groeien niet vanzelf weer aan, ook al doet de natuur zijn werk. 
+**TreesForAll**
+Doel vanuit Trees for All: gedachte meegeven dat opnieuw bebossen van bestaande gebieden complexer is dan simpelweg bomen planten. 
+Zo is het bijvoorbeeld belangrijk om inheemse soorten te gebruiken en nauwkeurig een nieuw ecosysteem op te zetten, verschillende problemen vereisen een andere aanpak. Bebossing is essensieel voor de toekomst van de planteet. Bossen groeien niet vanzelf weer aan, ook al doet de natuur zijn werk. 
 
     “Een gezond bos vraagt om de juiste bomen op de juiste plek, goede voorbereiding van de bodem én aanpassing aan klimaatverandering.” 
-– Website Trees for All
+*– Website Trees for All*
 
 # Concept
 
 ### "Build Your Own Forest"
-* Te spelen op o.a. NS-stations (denk aan pop-up Utrecht Centraal), festivals, of openbare ruimtes
-* VR-ervaring van max. 5 minuten per speler
-* De speler krijgt een realistische uitdaging en het doel om een klein stuk grond opnieuw te bebossen.
-* Resultaat deelbaar op social media voor bredere impact
+    * Te spelen op o.a. NS-stations (denk aan pop-up Utrecht Centraal), festivals, of openbare ruimtes
+    * VR-ervaring van max. 5 minuten per speler
+    * De speler krijgt een realistische uitdaging en het doel om een klein stuk grond opnieuw te bebossen.
+    * Resultaat deelbaar op social media voor bredere impact
 
 ### Gameplay
 Doel voor de speler: herbebos een gebied zo goed mogelijk.
 
 Stappenplan voor de speler:
-1.	De speler krijgt 5 minuten de tijd om een bos te planten
-Hierin is het de uitdaging om slim te planten en verstoringen op te ruimen. Alle spelers starten met een gebied in de wereld, bodemtype, beginwaardes en één van drie ecologische problemen.
-2.	De speler krijgt de mogelijkheid om dit bos uit te breiden en ontstane ecologische problemen op te lossen
-Op basis van het ecologische probleem: slechte bodem, zaadgebrek of klimaatverandering, hebben verschillen planten de voorkeur. Zo kan de speler bodembedekkers, zaaddragende struiken, klimaatbestendige bomen, inheemse bomen en meer planten. 
-Een tipsysteem in combinatie met realtime effect van de keuzes in de vorm van 3 statusbalken in het user-interface, geeft de speler inzicht in voortgang.
+1.	De speler krijgt 5 minuten de tijd om een bos te planten.
+Hierin is het de uitdaging om de juiste zaden te kiezen die helpen bij het oplossen van de ecologische uitdaging. Alle spelers starten met een gebied in de wereld, bodemtype, beginwaardes en een op te lossen probleem in dat gebied.
+
+![alt text][StartBYOF]
+[orthoview]: images/StartBYOF.gif "Gif showing the start of the game"
+
+2.	Spelers interacteren met de game door hun hand te openen of sluiten. Zo kunnen spelers zaden pakken, planten, de gieter pakken én planten verwijderen. Op basis van de uitdaging: slechte bodem, zaadgebrek, klimaatverandering, etc., hebben verschillen planten de voorkeur. Zo kan de speler bodembedekkers, zaaddragende struiken, klimaatbestendige bomen, inheemse bomen en meer planten. Een tipsysteem in combinatie met realtime effect van de keuzes in de vorm van 3 statusbalken in het user-interface, geeft de speler inzicht in voortgang.
+
+![alt text][InteractionsBYOF]
+[orthoview]: images/InteractionsBYOF.gif "Gif showing the interactions and gameplay"
+
 3.	De speler krijgt een inzicht op hoe hij / zij het heeft gedaan, op basis van biodiversiteit, grondkwaliteit en CO2-opslag capaciteit.
 Aan het eind krijgt de speler een score op basis van de 3 statusbalken en efficiëntie. Ongeacht de score zijn spelers creatief bezig geweest met een ecologische uitdaging en hebben ze een uniek eigen bos gemaakt. De score én de spelers zelf gemaakte bos kunnen gedeeld worden op social media om delen te stimuleren.
 
-
 # Huidige staat
+De core systemen zijn geimplementeerd en getest: Interacties, gameplay loop, grid systeem, planten, de gieter, de groei mechanic, UI en HUD en meer. Hiermee wordt de speler uitgedaagd om op een 5x5 grid bomen, zaaddragende struiken en grondbedekkers te planten die allemaal invloed hebben op het ecosysteem en daarmee de herbebossing. 
 ![alt text][orthoview]
-
 [orthoview]: images/orthographic-view.png "Orthographic view of game"
+
+Ieder systeem is gebouwd om uitbereidbaar te zijn en om te anticiperen op toekomstige keuzes. Zo zijn game variabelen zoals grid grootte en level lengte allemaal aanpasbaar.
+Daarnaast is de content makkelijk uitbereidbaar, zonder de code te beinvloeden, door middel van scriptable objects. Zo anticipeer ik op dat ik of een andere programmeur in staat is om met gemak het prototype verder uit te werken.
+
+
+
+**Volgende stappen**
+Als ik door zou ontwikkelen zou ik het volgende verder uitwerken:
+* Kleine fixes, zoals HUD en startscherm altijd in front renderer door custom UI shader.
+* Effect van planten op de ecologische waardes.
+* Een hele hoop locaties, challenges, plants en grondtypes toevoegen. Ideeën zijn: Zuid Amerika, delen van afrika, daar de inheemse soorten van, challenges zoals boskappingen door landbouw, meerdere klimaatveranderingscenario's, planten die meerdere gridspaces opnemen etc. 
+* Mogelijkheid voor planten om dood te gaan door het maken van de verkeerde samenstellingen op basis van de challenge.
+* tips systeem om spelers te helpen bij het terugkomen op negatieve gevolgen.
+* Berekenen van een highscore op basis van de spelers keuzes en de ecologische waardes.
+* End-state, het resetten van het level en het starten van een nieuwe.
+* Diversions toevoegen waardoor spelers, bij de bosbrand grond bijvoorbeeld, dode bomen moeten verwijderen, of eerst de te droge grond goed moeten bewateren.
+* Custom editor waarmee content (planten, locaties, grondtypes etc.) makkelijk gebouwd kan worden, doordat benodigde elementen gecreërd worden in code.
+
+
+### Gemaakte keuzes
+* Om rekening te houden met de context en doelgroep (non-gamers in openbare ruimte) heb ik de focus gelegd op intiutiviteit van controls. Hierom koos ik ervoor om controllers én handtracking te ondersteunen en grijpen de enige input actie te maken.
+* Om de drempel voor VR te verlagen voor een groot deel van de samenleving heb ik ervoor gekozen om de omgeving van de VR game, passthrough te maken. Mensen voelen zich zo sneller op hun gemak, en voelen zich minder bekeken. 
+* Ik heb nummer 5 uit de opdracht op een andere manier geimplementeerd. De speler kan alle soorten zaden planten. De keuzes van de speler hebben wel invloed op het ecosysteem en daarmee op de eindscore. Door de spelers niets te verbieden zal de speler zelf negatieve gevolgen kunnen ervaren wat leidt tot een leerervaring (learning experience).
+* Ik heb nummer 6 uitgebereid. Planten kunnen tussen de 2 en 5 groeistadia hebben afhankelijk van de plantsoort. De type grond beinvloed de groeisnelheid, afhankelijk van de grondkwaliteit. Watergeven geeft een tijdelijk boost in groei voor planten en planten gaan alleen dood als de ecologische waardes ongunstig zijn voor de groei doordat speler de verkeerde keuzes maakt. Ook dit heb ik gedaan om spelers zelf realistische negatieve gevolgen te laten ervaren van hun acties.
 
 # Technische uitwerking
 
