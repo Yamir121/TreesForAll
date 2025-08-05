@@ -41,13 +41,14 @@ Aan het eind krijgt de speler een score op basis van de 3 statusbalken en effici
 
 # Huidige staat
 De core systemen zijn geimplementeerd en getest: Interacties, gameplay loop, grid systeem, planten, de gieter, de groei mechanic, UI en HUD en meer. Hiermee wordt de speler uitgedaagd om op een 5x5 grid bomen, zaaddragende struiken en grondbedekkers te planten die allemaal invloed hebben op het ecosysteem en daarmee de herbebossing. 
-![alt text][orthoview]
-[orthoview]: images/orthographic-view.png "Orthographic view of game"
+
+![OrthographicView](images/orthographic-view.png)
 
 Ieder systeem is gebouwd om uitbereidbaar te zijn en om te anticiperen op toekomstige keuzes. Zo zijn game variabelen zoals grid grootte en level lengte allemaal aanpasbaar.
 Daarnaast is de content makkelijk uitbereidbaar, zonder de code te beinvloeden, door middel van scriptable objects. Zo anticipeer ik op dat ik of een andere programmeur in staat is om met gemak het prototype verder uit te werken.
 
 **Volgende stappen**
+
 Als ik door zou ontwikkelen zou ik het volgende verder uitwerken:
 * Kleine fixes, zoals HUD en startscherm altijd in front renderer door custom UI shader.
 * Effect van planten op de ecologische waardes.
