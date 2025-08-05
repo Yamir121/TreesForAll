@@ -1,16 +1,7 @@
 using UnityEngine;
 
+//not implemented yet, but responsible for calculating the score based on the level instance end attributesand seeds used. Also reporting back to the gamemanager.
 public class ScoreManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

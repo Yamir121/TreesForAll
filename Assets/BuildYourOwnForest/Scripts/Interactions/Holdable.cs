@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using System.Threading;
 using UnityEngine;
 
+//General type of holdable, can be held in the hand by the player.
 public class Holdable : MonoBehaviour
 {
     [TitleGroup("Data")]

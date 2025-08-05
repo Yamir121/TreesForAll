@@ -2,7 +2,7 @@ using Oculus.Interaction;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[RequireComponent(typeof(InteractionZone))]
+//abstract parent for objects to be selected by a player. Implementation will determine selection behaviour.
 public abstract class Selectable : MonoBehaviour
 {
     [SerializeField] private InteractionZone interactionZone;

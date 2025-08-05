@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Responsible for managing the level instance and its accompanying high level objects.
 public class LevelManager : Manager
 {
     public static LevelManager Instance { get; private set; }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// high level object managed by the levelmanager, stores and places selection objects for the player to select.
 public class SelectionTable : MonoBehaviour
 {
     [SerializeField] private List<Transform> selectionSlots;

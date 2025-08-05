@@ -104,7 +104,7 @@ public class TimeManager : Manager {
 
     public void PauseSpecificTimer(Timer timer)
     {
-        
+        throw new System.NotImplementedException();
     }
 
     public void StopSpecificTimer(Timer timer)

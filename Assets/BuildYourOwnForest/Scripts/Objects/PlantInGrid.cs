@@ -3,6 +3,7 @@ using Sirenix.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Plant grid object, which can grow, has different growth stages, can be watered or can wither away. This object is managed by the groundgrid.
 public class PlantInGrid : GridObject
 {
     public int CurrentGrowthStage => currentGrowthStage;
@@ -28,7 +29,6 @@ public class PlantInGrid : GridObject
 
     public void Water()
     {
-        TimeManager.Instance.StartTimer(5, true, () => GrowOneStage());
     }
 
     public void AddProgressToNextStage(float amount)

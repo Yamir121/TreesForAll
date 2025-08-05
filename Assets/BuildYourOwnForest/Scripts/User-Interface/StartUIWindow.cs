@@ -5,6 +5,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
+//Window with location and challenge, the starting point for the player. This window is managed by the UIManager.
 public class StartUIWindow : InteractableUIWindow
 {
 

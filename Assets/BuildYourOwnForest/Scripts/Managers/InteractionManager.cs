@@ -11,6 +11,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using static Oculus.Interaction.Context;
 
+//Responsible for handling all interactionZones, selectables and holdables. Also interfacing with Meta Interaction SDK Comprehensive.
 public class InteractionManager : Manager
 {
     public static InteractionManager Instance { get; private set; }

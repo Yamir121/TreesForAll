@@ -5,7 +5,7 @@ using UnityEngine;
 //Modifier on location attributes based on real world ecological challenges.
 public class Challenge : ScriptableObject
 {
-    public string Explanation => explanation;
+    public string Explanation => explanation; //text to appear on UI
     public GroundType GroundType => groundType;
 
     [SerializeField] private string explanation;

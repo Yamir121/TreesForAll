@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//As the ecosystem values are core of the gameplay, this is a valuetype storing all three. Reduces chance of mistakes.
 public class Attributes
 {
     public int biodiversity;

@@ -1,16 +1,7 @@
 using UnityEngine;
 
+//Not implemented yet. Responsable for managing given tips during the game. Example: Plant dies because ground quality is still too poor, tooltip appears, helping the player.
 public class TipsManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

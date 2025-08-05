@@ -2,22 +2,8 @@ using Oculus.Interaction;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-//Object in the ground grid such as trees and shrubbery.
-public class GridObject : Selectable
+//abstract object in the ground grid such as trees and shrubbery. Can be used later on to support objects other than plants, such as rocks, signposts, waterstreams etc.
+public abstract class GridObject : MonoBehaviour
 {
-    [SerializeField] float removalDelay = 4f;
 
-    public void StartRemovalVisual(float countdownLength)
-    {
-        throw new System.NotImplementedException();
-    }
-    public virtual void RemoveFromGrid()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Select(InteractionManager.InteractionType type, InteractionManager.Hand hand, Holdable holdable)
-    {
-        throw new System.NotImplementedException();
-    }
 }

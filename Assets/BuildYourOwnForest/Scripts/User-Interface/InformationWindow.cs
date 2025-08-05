@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 
+//Small window in front of plant selection on the selection table. Managed by plantselectionObject. Revise later to be managed by UIManager.
 public class InformationWindow : MonoBehaviour
 {
     [TitleGroup("References")]

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Heads-up-display in view for the player to quickly see values such as attributes and timer. Managed by the UIManager.
 public class HUD : MonoBehaviour
 {
     public ValueContainer ValueContainer1 => valueContainer1;

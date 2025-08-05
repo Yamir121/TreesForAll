@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 #if UNITY_EDITOR
 using UnityEditorInternal;
 #endif
-
+//high level object managed and selected by the level manager. The groundgrid is the object players can place plants and other objects on.
 public class GroundGrid : SerializedMonoBehaviour
 {
     [TitleGroup("References")]
@@ -78,6 +78,9 @@ public class GroundGrid : SerializedMonoBehaviour
         _gridSpace.occupyingObject = Instantiate(plant.GridObject, new Vector3(_gridSpace.position.x, gridHeight, _gridSpace.position.z), Quaternion.identity, this.transform);
     }
 
+    /// <summary>
+    /// Updates all active occupying grid objects.
+    /// </summary>
     public void UpdateAllOccupyingObjects()
     {
         if ((int)TimeManager.Instance.LevelTime != lastGrowthTick)

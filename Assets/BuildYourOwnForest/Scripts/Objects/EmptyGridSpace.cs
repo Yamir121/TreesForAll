@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 
+//Space in the grid which can be interacted with to fill the gridspace, managed by the groundgrid and therefore by the levelmanager.
 public class EmptyGridSpace : MonoBehaviour
 {
     public InteractionZone InteractionZone => zone;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//Core manager, responsible for starting and ending the game, level instances and UI instances.
 public class GameManager : Manager
 {
     public static GameManager Instance { get; private set; }
