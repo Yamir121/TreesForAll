@@ -30,13 +30,11 @@ Stappenplan voor de speler:
 1.	De speler krijgt 5 minuten de tijd om een bos te planten.
 Hierin is het de uitdaging om de juiste zaden te kiezen die helpen bij het oplossen van de ecologische uitdaging. Alle spelers starten met een gebied in de wereld, bodemtype, beginwaardes en een op te lossen probleem in dat gebied.
 
-![alt text][StartBYOF]
-[StartBYOF]: images/StartBYOF_Alt.gif "Gif showing the start of the game"
+![alt text][images/StartBYOF_Alt.gif]
 
 2.	Spelers interacteren met de game door hun hand te openen of sluiten. Zo kunnen spelers zaden pakken, planten, de gieter pakken én planten verwijderen. Op basis van de uitdaging: slechte bodem, zaadgebrek, klimaatverandering, etc., hebben verschillen planten de voorkeur. Zo kan de speler bodembedekkers, zaaddragende struiken, klimaatbestendige bomen, inheemse bomen en meer planten. Een tipsysteem in combinatie met realtime effect van de keuzes in de vorm van 3 statusbalken in het user-interface, geeft de speler inzicht in voortgang.
 
-![alt text][InteractionsBYOF]
-[InteractionsBYOF]: images/InteractionsBYOF_Alt.gif "Gif showing the interactions and gameplay"
+![alt text][images/InteractionsBYOF_Alt.gif]
 
 3.	De speler krijgt een inzicht op hoe hij / zij het heeft gedaan, op basis van biodiversiteit, grondkwaliteit en CO2-opslag capaciteit.
 Aan het eind krijgt de speler een score op basis van de 3 statusbalken en efficiëntie. Ongeacht de score zijn spelers creatief bezig geweest met een ecologische uitdaging en hebben ze een uniek eigen bos gemaakt. De score én de spelers zelf gemaakte bos kunnen gedeeld worden op social media om delen te stimuleren.
