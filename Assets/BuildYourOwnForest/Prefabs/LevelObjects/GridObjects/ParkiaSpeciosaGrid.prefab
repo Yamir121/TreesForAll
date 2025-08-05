@@ -75,6 +75,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6495432907076145207, guid: d974c36e48aea064f9198ef484a97952, type: 3}
+      propertyPath: plantData
+      value: 
+      objectReference: {fileID: 11400000, guid: b236b115e3274054698bd8710b6b6c7e, type: 2}
+    - target: {fileID: 6495432907076145207, guid: d974c36e48aea064f9198ef484a97952, type: 3}
       propertyPath: growthStageObjectScales.Array.size
       value: 5
       objectReference: {fileID: 0}

@@ -1,14 +1,17 @@
 using Oculus.Interaction.HandGrab;
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 
 public class EmptyGridSpace : MonoBehaviour
 {
     public InteractionZone InteractionZone => zone;
-    public GroundGrid.GridSpace gridSpace;
+    [TitleGroup("References")]
     [SerializeField] private InteractionZone zone;
+    [TitleGroup("Data")]
+    public GroundGrid.GridSpace gridSpace;
     
-
+    
     private void OnEnable()
     {
         zone.Interact += FillSpace;
@@ -16,11 +19,21 @@ public class EmptyGridSpace : MonoBehaviour
 
     private void FillSpace(InteractionManager.InteractionType type, InteractionManager.Hand hand, Holdable holdable)
     {
-        if (holdable is Seed)
+        if (type == InteractionManager.InteractionType.USE && holdable is Seed)
         {
-            //Spawn plant
+            Seed seed = (Seed)holdable;
+            gridSpace.occupyingObject = Instantiate(seed.PlantData.GridObject, new Vector3(gridSpace.position.x, gridSpace.position.y, gridSpace.position.z), Quaternion.identity, this.transform);
+            TimeManager.Instance.StartTimer(1, false, Destroy);
         }
     }
 
+    private void OnDisable()
+    {
+        zone.Interact -= FillSpace;
+    }
 
+    private void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }

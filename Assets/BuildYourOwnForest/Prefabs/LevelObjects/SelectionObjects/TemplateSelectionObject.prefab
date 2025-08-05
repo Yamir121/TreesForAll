@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightVisual: {fileID: 3897111616091138484}
-  interactionDistance: 0.13
-  highlightDistance: 0.25
+  interactionDistance: 0.15
+  highlightDistance: 0.3
   priority: 0
   acceptedInteractionTypes: 01000000
   longSelectDuration: 0

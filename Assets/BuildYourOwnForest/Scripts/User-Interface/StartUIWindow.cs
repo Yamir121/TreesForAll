@@ -30,13 +30,13 @@ public class StartUIWindow : InteractableUIWindow
         buttonPressed = true;
     }
 
-    public void SetValues(string location, string challenge, int carbonStorage, int biodiversity, int soilQuality)
+    public void SetValues(string location, string challenge, Attributes attributes)
     {
         locationText.text = location;
         challengeText.text = challenge;
-        startingCarbonStorageValue.text = carbonStorage.ToString();
-        startingBiodiversityValue.text = biodiversity.ToString();
-        startingSoilQualityValue.text = soilQuality.ToString();
+        startingBiodiversityValue.text = attributes.biodiversity.ToString();
+        startingSoilQualityValue.text = attributes.soilQuality.ToString();
+        startingCarbonStorageValue.text = attributes.carbonStorage.ToString();
     }
 
     public void OnDisable()

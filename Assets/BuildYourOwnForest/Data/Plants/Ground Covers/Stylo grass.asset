@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Stylo grass
   m_EditorClassIdentifier: 
   plantName: Stylo gras
+  plantType: 0
   selectionObject: {fileID: 2024243392441693675, guid: 37a13770727a1ad43af956aa4d57d175, type: 3}
-  seedObject: {fileID: 8510455893338832618, guid: d803b9c857cae8d41a95c29818626c13, type: 3}
-  gridObject: {fileID: 6495432907076145207, guid: d974c36e48aea064f9198ef484a97952, type: 3}
+  seedObject: {fileID: 5204564068566625134, guid: 65f822ffdf652054daa9d73eec8f2abc, type: 3}
+  gridObject: {fileID: 3926398231949623779, guid: 05d2c8fb9565fa543bc257c49f4e399b, type: 3}
   growthStages: 2
   indigiousLocation: {fileID: 11400000, guid: 90f64a7ca0a75b3478bd5ad29f9b8f01, type: 2}
   carbonStorage: 13

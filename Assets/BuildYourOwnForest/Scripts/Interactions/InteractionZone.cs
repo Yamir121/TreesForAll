@@ -39,11 +39,23 @@ public class InteractionZone : MonoBehaviour
     {
         if (highlightVisual != null)
         {
-            float intensity = 1f - ((distance - interactionDistance) / (highlightDistance - interactionDistance));
-            highlightVisual.material.color = new Color(highlightVisual.material.color.r, highlightVisual.material.color.g, highlightVisual.material.color.b, intensity);
+                //Clamp the dinstance in reverse between 1 and 0 to get a visual intensity.
+                float intensity = 1f - ((distance - interactionDistance) / (highlightDistance - interactionDistance));
+
+                //This code is temporary until I've found a shader to use as highlight visual
+                highlightVisual.material.SetFloat("_Smoothness", (intensity * 0.5f));
+                highlightVisual.material.color = new Color(highlightVisual.material.color.r, highlightVisual.material.color.g, highlightVisual.material.color.b, intensity);
         }
     }
 
+    public void ResetHighlight()
+    {
+        if (highlightVisual != null)
+        {
+            highlightVisual.material.SetFloat("_Smoothness", (0f));
+            highlightVisual.material.color = new Color(highlightVisual.material.color.r, highlightVisual.material.color.g, highlightVisual.material.color.b, 0f);
+        }
+    }
     private void OnDisable()
     {
         InteractionManager.Instance.UnregisterInteractionZone(this);

@@ -1,3 +1,4 @@
+using Meta.XR.ImmersiveDebugger.UserInterface;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ public class LevelManager : Manager
         public Challenge challenge;
         public int timeElapsed;
         public bool isActive;
+        public Attributes realTimeAttributes;
     }
 
     private void Awake()
@@ -67,9 +69,10 @@ public class LevelManager : Manager
         activeGrid = Instantiate(challenge.GroundType.GroundGrid,transform.position,Quaternion.identity);
         activeGrid.SetGridSize((int)GameManager.Instance.GroundSize.x, (int)GameManager.Instance.GroundSize.y);
         activeGrid.PopulateGrid();
-        activelevelTimer = TimeManager.Instance.StartTimer(levelLength,true, EndLevelInstance);
         UIManager.Instance.ShowHUD();
+        activelevelTimer = TimeManager.Instance.StartTimer(levelLength,true, EndLevelInstance);
         currentLevel = new LevelInstance(location, challenge);
+        currentLevel.realTimeAttributes = challenge.GroundType.Attributes;
         currentLevel.isActive = true;
     }
 
@@ -79,6 +82,8 @@ public class LevelManager : Manager
         {
             UIManager.Instance.UpdateHUDTimer((int)activelevelTimer.GetCurrentTime());
         }
+
+        activeGrid.UpdateAllOccupyingObjects();
     }
 
 

@@ -1,6 +1,7 @@
 # TreesForAll: VR Awareness Campaign
 
 ### Interpetatie Opdracht:
+
 De kracht van VR gebruiken / optimaliseren door het in te zetten voor een awareness campagne over de bebossingsprojecten waar Trees for All aan bijdraagt.
 
 **Het doel:**
@@ -10,9 +11,9 @@ Om een doelgerichte, effectieve applied game te ontwikkelen waarin de doelgroep 
 **TreesForAll:**
 Doel vanuit Trees for All: gedachte meegeven dat opnieuw bebossen van bestaande gebieden is complexer dan simpelweg bomen planten. 
 Zo is het bijvoorbeeld belangrijk om inheemse soorten te gebruiken en nauwkeurig een nieuw ecosysteem op te zetten, verschillende problemen vereisen een andere aanpak, bossen groeien niet vanzelf weer aan, ook al doet de natuur zijn werk. 
--
-    _“Een gezond bos vraagt om de juiste bomen op de juiste plek, goede voorbereiding van de bodem én aanpassing aan klimaatverandering.” 
-    – website Trees for All_
+
+    “Een gezond bos vraagt om de juiste bomen op de juiste plek, goede voorbereiding van de bodem én aanpassing aan klimaatverandering.” 
+– Website Trees for All
 
 # Concept
 
@@ -34,10 +35,16 @@ Een tipsysteem in combinatie met realtime effect van de keuzes in de vorm van 3 
 3.	De speler krijgt een inzicht op hoe hij / zij het heeft gedaan, op basis van biodiversiteit, grondkwaliteit en CO2-opslag capaciteit.
 Aan het eind krijgt de speler een score op basis van de 3 statusbalken en efficiëntie. Ongeacht de score zijn spelers creatief bezig geweest met een ecologische uitdaging en hebben ze een uniek eigen bos gemaakt. De score én de spelers zelf gemaakte bos kunnen gedeeld worden op social media om delen te stimuleren.
 
+
+# Huidige staat
+![alt text][orthoview]
+
+[orthoview]: images/orthographic-view.png "Orthographic view of game"
+
 # Technische uitwerking
 
 ### Lijst aan gebruikte assets
-* Synty Polygon Pack
+* Synty Polygon Pack: https://syntystore.com/collections/polygon
 * https://www.freepik.com/free-vector/wooden-frames-buttons-with-jungle-leaves_133568965.htm
 * https://sketchfab.com/3d-models/watering-can-ffb0d644238b4c679658aa0ee46ac6da
 

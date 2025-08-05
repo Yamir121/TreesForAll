@@ -20,11 +20,11 @@ public class UIManager : Manager
         Instance = this;
     }
 
-    public void UpdateHUDValues(Vector3 values) 
+    public void UpdateHUDValues(Attributes attributes) 
     { 
-       hud.ValueContainer1.value.text =  values.x.ToString();
-       hud.ValueContainer2.value.text =  values.y.ToString();
-       hud.ValueContainer3.value.text =  values.z.ToString();
+       hud.ValueContainer1.value.text = attributes.biodiversity.ToString();
+       hud.ValueContainer2.value.text = attributes.soilQuality.ToString();
+       hud.ValueContainer3.value.text = attributes.carbonStorage.ToString();
     }
 
     public void UpdateHUDTimer(int time)
@@ -38,7 +38,7 @@ public class UIManager : Manager
     public StartUIWindow ShowStartUIWindow(Location chosenLocation, Challenge chosenChallenge)
     {
         startUIWindow.gameObject.SetActive(true);
-        startUIWindow.SetValues(chosenLocation.WorldLocation,chosenChallenge.Explanation, (int)chosenChallenge.GroundType.Attributes.x, (int)chosenChallenge.GroundType.Attributes.y, (int)chosenChallenge.GroundType.Attributes.z);
+        startUIWindow.SetValues(chosenLocation.WorldLocation,chosenChallenge.Explanation, chosenChallenge.GroundType.Attributes);
         return startUIWindow;
     }
 

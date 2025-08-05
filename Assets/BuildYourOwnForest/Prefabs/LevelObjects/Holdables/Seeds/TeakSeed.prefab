@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5218374398007149095, guid: d803b9c857cae8d41a95c29818626c13, type: 3}
       propertyPath: m_Name
-      value: TemplateSeed Variant
+      value: TeakSeed
       objectReference: {fileID: 0}
     - target: {fileID: 5729871214094925932, guid: d803b9c857cae8d41a95c29818626c13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8510455893338832618, guid: d803b9c857cae8d41a95c29818626c13, type: 3}
+      propertyPath: plantData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2af13df7606cb0b4ba3ceca0eaf4e91f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

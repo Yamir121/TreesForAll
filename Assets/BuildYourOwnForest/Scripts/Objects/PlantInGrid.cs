@@ -10,7 +10,7 @@ public class PlantInGrid : GridObject
 
 
     [TitleGroup("References")]
-    private GameObject mesh;
+    [SerializeField] private GameObject mesh;
 
     [TitleGroup("Variables")]
     [SerializeField] private List<float> growthStageObjectScales;
@@ -18,7 +18,7 @@ public class PlantInGrid : GridObject
 
     [TitleGroup("Data")]
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)][SerializeField] private Plant plantData;
-    [SerializeField] private float progressToNextStage = 0f;
+    [ReadOnly][SerializeField] private float progressToNextStage = 0f;
     [ReadOnly][Range(1, 5)][SerializeField] private int currentGrowthStage = 1;
 
     public void Start()
@@ -33,7 +33,10 @@ public class PlantInGrid : GridObject
 
     public void AddProgressToNextStage(float amount)
     {
-        progressToNextStage += amount;
+        if (currentGrowthStage != plantData.MaxGrowthStage)
+        {
+            progressToNextStage += amount;
+        }
     }
 
     public void Grow(int growthAmount)
@@ -60,6 +63,7 @@ public class PlantInGrid : GridObject
         if (currentGrowthStage != plantData.MaxGrowthStage)
         {
             currentGrowthStage += 1;
+            progressToNextStage = 0;
             UpdateGrowthStage();
         }
     }
@@ -71,6 +75,6 @@ public class PlantInGrid : GridObject
 
     private void UpdateGrowthStage()
     {
-        mesh.transform.localScale = new Vector3(growthStageObjectScales[currentGrowthStage], growthStageObjectScales[currentGrowthStage], growthStageObjectScales[currentGrowthStage]);
+        mesh.transform.localScale = new Vector3(growthStageObjectScales[currentGrowthStage-1], growthStageObjectScales[currentGrowthStage-1], growthStageObjectScales[currentGrowthStage-1]);
     }
 }

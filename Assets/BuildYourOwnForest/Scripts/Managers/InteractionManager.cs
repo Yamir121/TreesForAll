@@ -135,12 +135,21 @@ public class InteractionManager : Manager
 
             if (Vector3.Distance(leftHandTransform.position,zone.transform.position) < zone.HighlightDistance)
             {
+                //TODO: Give valid interactions to the zone to check if its valid
                 zone.UpdateHighlight(Vector3.Distance(leftHandTransform.position, zone.transform.position), true);
+            }
+            else
+            {
+                zone.ResetHighlight();
             }
 
              if (Vector3.Distance(rightHandTransform.position, zone.transform.position) < zone.HighlightDistance)
             {
                 zone.UpdateHighlight(Vector3.Distance(rightHandTransform.position, zone.transform.position), true);
+            }
+            else
+            {
+                zone.ResetHighlight();
             }
 
         }
@@ -162,6 +171,7 @@ public class InteractionManager : Manager
     }
     public void UnregisterHoldable(Holdable holdable)
     {
+        holdable.GrabInteractable.WhenInteractorRemoved.Action -= OnObjectReleased;
         CurrentlyHeldObjects.Remove(holdable);
     }
 

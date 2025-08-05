@@ -6,7 +6,7 @@ using UnityEngine;
 //Type of ground for the player to reforest. Based on real world groundtypes.
 public class GroundType : ScriptableObject
 {
-    public Vector3 Attributes => new Vector3(carbonStorage, biodiversity, soilQuality);
+    public Attributes Attributes => new Attributes(carbonStorage, biodiversity, soilQuality);
     public GroundGrid GroundGrid => groundGrid;
 
     [SerializeField] private string groundTypeName;

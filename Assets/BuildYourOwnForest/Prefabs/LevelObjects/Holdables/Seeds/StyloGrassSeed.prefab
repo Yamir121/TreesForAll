@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1006838704674488077, guid: c9e2c55ad3654cc4992aa29cfc4b9e77, type: 3}
+      propertyPath: plantData
+      value: 
+      objectReference: {fileID: 11400000, guid: 83894ebec2d8c6840a9614e59fcb8d94, type: 2}
     - target: {fileID: 3713595167779718080, guid: c9e2c55ad3654cc4992aa29cfc4b9e77, type: 3}
       propertyPath: m_Name
-      value: TemplateSeed Variant
+      value: StyloGrassSeed
       objectReference: {fileID: 0}
     - target: {fileID: 3775885099459330443, guid: c9e2c55ad3654cc4992aa29cfc4b9e77, type: 3}
       propertyPath: m_LocalPosition.x

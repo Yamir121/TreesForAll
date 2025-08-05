@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabInteractable: {fileID: 2548864583906654371}
+  plantData: {fileID: 11400000, guid: 34252f65918ab1241869fe3fbae9ef32, type: 2}
 --- !u!65 &7677104601776680680
 BoxCollider:
   m_ObjectHideFlags: 0

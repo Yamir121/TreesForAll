@@ -57,6 +57,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2242167875876852578, guid: cd187fb27bdfe114f8b21d1f5110340b, type: 3}
     - target: {fileID: 5735490511502577893, guid: 02e2e47fb27552d498ef04f5cb5d9a97, type: 3}
+      propertyPath: gridSpacePrefab
+      value: 
+      objectReference: {fileID: 2656683809198716147, guid: cd187fb27bdfe114f8b21d1f5110340b, type: 3}
+    - target: {fileID: 5735490511502577893, guid: 02e2e47fb27552d498ef04f5cb5d9a97, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 5735490511502577893, guid: 02e2e47fb27552d498ef04f5cb5d9a97, type: 3}

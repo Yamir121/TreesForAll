@@ -17,7 +17,7 @@ public class GroundGrid : SerializedMonoBehaviour
 
     [TitleGroup("Variables")]
     [ReadOnly][SerializeField] private float gridHeight = 0f;
-    [ReadOnly][SerializeField] private float plantGrowthPerSecond = 0.05f; //1 second accounts for 5% towards the next growth stage.
+    [ReadOnly][SerializeField] private float plantGrowthPerSecond = 0.01f; //1 second accounts for 1% towards the next growth stage.
     [TitleGroup("Data")]
     [ReadOnly][SerializeField][TableMatrix(DrawElementMethod = "DrawElement")] private GridSpace[,] grid;
     
@@ -32,7 +32,7 @@ public class GroundGrid : SerializedMonoBehaviour
         }
         public Vector3 position;
         public GridObject occupyingObject;
-        public InteractionZone interactionZone;
+        public EmptyGridSpace emptyGridSpace;
     }
 
     [Button]
@@ -46,7 +46,6 @@ public class GroundGrid : SerializedMonoBehaviour
         grid = new GridSpace[rows, cols];
         transform.position = new Vector3( -((float)rows / 2),gridHeight, -((float)cols / 2));
     }
-
 
     [Button]
     /// <summary>
@@ -62,8 +61,7 @@ public class GroundGrid : SerializedMonoBehaviour
             {
                 grid[row, col] = new GridSpace(new Vector3(row - offset.x, gridHeight, col - offset.y));
                 EmptyGridSpace gridspaceObject = Instantiate(gridSpacePrefab, grid[row, col].position, Quaternion.identity, gameObject.transform);
-                //gridspaceObject.GridSpace = grid[row, col];
-                //refractor to the point that the gridspaces are monobehaviours
+                grid[row, col].emptyGridSpace = gridspaceObject;
             }
         }
     }
@@ -74,7 +72,7 @@ public class GroundGrid : SerializedMonoBehaviour
     /// </summary>
     /// <param name="plant">Plant to place in the grid</param>
     /// <param name="gridPlacement">Position in the GroundGrid</param>
-    public void SpawnPlant(Plant plant, int x, int y)
+    public void SpawnPlantOnSpecificGridSpace(Plant plant, int x, int y)
     {
         GridSpace _gridSpace = grid[x - 1, y - 1];
         _gridSpace.occupyingObject = Instantiate(plant.GridObject, new Vector3(_gridSpace.position.x, gridHeight, _gridSpace.position.z), Quaternion.identity, this.transform);
@@ -93,7 +91,7 @@ public class GroundGrid : SerializedMonoBehaviour
                     if (grid[row, col].occupyingObject is PlantInGrid)
                     {
                         PlantInGrid _plant = (PlantInGrid)grid[row, col].occupyingObject;
-                        if (_plant.ProgressToNextStage == 1)
+                        if (_plant.ProgressToNextStage >= 1)
                         {
                             _plant.GrowOneStage();
                         }
@@ -107,6 +105,7 @@ public class GroundGrid : SerializedMonoBehaviour
         }
 
     }
+
 
     public void RemoveGridObjectAtIndex(int x, int y)
     {

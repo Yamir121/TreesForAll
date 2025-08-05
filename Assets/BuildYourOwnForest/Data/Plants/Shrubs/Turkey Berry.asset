@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Turkey Berry
   m_EditorClassIdentifier: 
   plantName: Kalkoenbessenstruik
+  plantType: 0
   selectionObject: {fileID: 7501436139151509466, guid: 066115644a976644aab6c086a9bc8335, type: 3}
-  seedObject: {fileID: 8510455893338832618, guid: d803b9c857cae8d41a95c29818626c13, type: 3}
-  gridObject: {fileID: 6495432907076145207, guid: d974c36e48aea064f9198ef484a97952, type: 3}
+  seedObject: {fileID: 1006838704674488077, guid: 35c644d82cc2e23478968c386081f499, type: 3}
+  gridObject: {fileID: 4247087864728332519, guid: f1611433574498e48be953323f1cbd66, type: 3}
   growthStages: 3
   indigiousLocation: {fileID: 11400000, guid: 90f64a7ca0a75b3478bd5ad29f9b8f01, type: 2}
   carbonStorage: 3

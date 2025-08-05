@@ -165,13 +165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58eb0c54a6e4a3c44b0ace88c4dfbea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionZone: {fileID: 0}
+  interactionZone: {fileID: 6825477162771377004}
   removalDelay: 4
+  mesh: {fileID: 2448757039102786270}
   growthStageObjectScales:
   - 0.2
   - 0.5
   - 0.8
   plantData: {fileID: 11400000, guid: 34252f65918ab1241869fe3fbae9ef32, type: 2}
+  progressToNextStage: 0
   currentGrowthStage: 1
 --- !u!114 &6825477162771377004
 MonoBehaviour:
@@ -186,11 +188,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightVisual: {fileID: 547215196984141567}
-  highlightDistance: 0
-  interactionDistance: 0
+  interactionDistance: 0.15
+  highlightDistance: 0.3
   priority: 0
   acceptedInteractionTypes: 0000000002000000
-  longSelectDuration: 0
+  longSelectDuration: 4
   isHighlighting: 0
 --- !u!1001 &2781075477970521475
 PrefabInstance:

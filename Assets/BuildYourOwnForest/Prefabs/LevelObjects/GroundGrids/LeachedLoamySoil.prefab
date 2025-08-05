@@ -166,5 +166,6 @@ MonoBehaviour:
     - Name: grid
       Entry: 6
       Data: 
-  zonePrefab: {fileID: 2242167875876852578, guid: cd187fb27bdfe114f8b21d1f5110340b, type: 3}
+  gridSpacePrefab: {fileID: 2656683809198716147, guid: cd187fb27bdfe114f8b21d1f5110340b, type: 3}
   gridHeight: 0
+  plantGrowthPerSecond: 0.05
