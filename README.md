@@ -31,12 +31,12 @@ Stappenplan voor de speler:
 Hierin is het de uitdaging om de juiste zaden te kiezen die helpen bij het oplossen van de ecologische uitdaging. Alle spelers starten met een gebied in de wereld, bodemtype, beginwaardes en een op te lossen probleem in dat gebied.
 
 ![alt text][StartBYOF]
-[orthoview]: images/StartBYOF.gif "Gif showing the start of the game"
+[StartBYOF]: images/StartBYOF_Alt.gif "Gif showing the start of the game"
 
 2.	Spelers interacteren met de game door hun hand te openen of sluiten. Zo kunnen spelers zaden pakken, planten, de gieter pakken én planten verwijderen. Op basis van de uitdaging: slechte bodem, zaadgebrek, klimaatverandering, etc., hebben verschillen planten de voorkeur. Zo kan de speler bodembedekkers, zaaddragende struiken, klimaatbestendige bomen, inheemse bomen en meer planten. Een tipsysteem in combinatie met realtime effect van de keuzes in de vorm van 3 statusbalken in het user-interface, geeft de speler inzicht in voortgang.
 
 ![alt text][InteractionsBYOF]
-[orthoview]: images/InteractionsBYOF.gif "Gif showing the interactions and gameplay"
+[InteractionsBYOF]: images/InteractionsBYOF_Alt.gif "Gif showing the interactions and gameplay"
 
 3.	De speler krijgt een inzicht op hoe hij / zij het heeft gedaan, op basis van biodiversiteit, grondkwaliteit en CO2-opslag capaciteit.
 Aan het eind krijgt de speler een score op basis van de 3 statusbalken en efficiëntie. Ongeacht de score zijn spelers creatief bezig geweest met een ecologische uitdaging en hebben ze een uniek eigen bos gemaakt. De score én de spelers zelf gemaakte bos kunnen gedeeld worden op social media om delen te stimuleren.
@@ -49,8 +49,6 @@ De core systemen zijn geimplementeerd en getest: Interacties, gameplay loop, gri
 Ieder systeem is gebouwd om uitbereidbaar te zijn en om te anticiperen op toekomstige keuzes. Zo zijn game variabelen zoals grid grootte en level lengte allemaal aanpasbaar.
 Daarnaast is de content makkelijk uitbereidbaar, zonder de code te beinvloeden, door middel van scriptable objects. Zo anticipeer ik op dat ik of een andere programmeur in staat is om met gemak het prototype verder uit te werken.
 
-
-
 **Volgende stappen**
 Als ik door zou ontwikkelen zou ik het volgende verder uitwerken:
 * Kleine fixes, zoals HUD en startscherm altijd in front renderer door custom UI shader.
@@ -62,7 +60,6 @@ Als ik door zou ontwikkelen zou ik het volgende verder uitwerken:
 * End-state, het resetten van het level en het starten van een nieuwe.
 * Diversions toevoegen waardoor spelers, bij de bosbrand grond bijvoorbeeld, dode bomen moeten verwijderen, of eerst de te droge grond goed moeten bewateren.
 * Custom editor waarmee content (planten, locaties, grondtypes etc.) makkelijk gebouwd kan worden, doordat benodigde elementen gecreërd worden in code.
-
 
 ### Gemaakte keuzes
 * Om rekening te houden met de context en doelgroep (non-gamers in openbare ruimte) heb ik de focus gelegd op intiutiviteit van controls. Hierom koos ik ervoor om controllers én handtracking te ondersteunen en grijpen de enige input actie te maken.
